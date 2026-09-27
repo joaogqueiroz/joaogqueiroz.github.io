@@ -4,7 +4,7 @@ An 8-bit, terminal-style portfolio for **João de Queiroz**, Senior Software Eng
 
 The page looks like a retro terminal session. It types out a welcome, then runs the `about` and `experience` commands by itself, so visitors see his work history without doing anything. After that they can explore with commands or buttons.
 
-It's one static file, `index.html`. There's no framework, no build step and no dependencies apart from two Google Fonts.
+It's a static site built around one page, `index.html`. There's no framework, no build step and no dependencies apart from two Google Fonts.
 
 ## What's on the page
 
@@ -40,10 +40,7 @@ python3 -m http.server 8000
 
 ## Deploy
 
-It's a static site, so any static host works.
-
-- **Netlify:** connect this repo, leave the build command empty and set the publish directory to `/`.
-- **GitHub Pages:** Settings → Pages → deploy from `main`, root folder. This needs a public repo or a paid GitHub plan.
+The site is live at **https://joaogqueiroz.github.io** on GitHub Pages, deployed from the root of `main`. Every push to `main` publishes it in about a minute.
 
 ## Editing the content
 
@@ -58,6 +55,24 @@ All content is in the `<script>` block of `index.html`:
 | Intro sequence and typing speed | `intro()` function |
 
 The job with `now: true` gets the **NOW** badge.
+
+**Keep three copies in sync.** The same content also lives in:
+
+- **`<main id="profile">`** in `index.html`: a static HTML copy for crawlers, AI agents and visitors without JavaScript. It's hidden when JavaScript runs.
+- **`llms.txt`:** a Markdown summary for LLMs.
+- **The JSON-LD block** in `<head>`: title, employer and skills as schema.org `Person` data.
+
+When you change a job, skill or project, update all of them.
+
+## Readable by search engines and AI
+
+The terminal is built with JavaScript, and most AI crawlers don't run JavaScript. So the page also ships its content as plain HTML:
+
+- **Static profile:** the full content in semantic HTML, shown only when JavaScript is off.
+- **JSON-LD:** a schema.org `Person` with role, location, employer, languages, skills and `sameAs` links to LinkedIn and GitHub.
+- **`llms.txt`:** a Markdown profile at `/llms.txt`, also linked from `<head>`.
+- **`robots.txt` and `sitemap.xml`:** allow all crawlers and point them to the page.
+- **Canonical URL and Open Graph tags:** for link previews on LinkedIn and chat apps.
 
 ## Design
 

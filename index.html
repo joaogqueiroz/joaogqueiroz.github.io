@@ -5,7 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="João de Queiroz — Senior Software Engineer, backend, .NET and AWS. Rio de Janeiro, Brazil.">
 <title>João de Queiroz</title>
+<link rel="canonical" href="https://joaogqueiroz.github.io/">
+<link rel="alternate" type="text/markdown" href="llms.txt" title="Profile for LLMs">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="João de Queiroz · Senior Software Engineer">
+<meta property="og:description" content="Backend engineer, .NET and AWS. 8 years building APIs, microservices and cloud infrastructure. Rio de Janeiro, Brazil.">
+<meta property="og:url" content="https://joaogqueiroz.github.io/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>document.documentElement.classList.add("js");</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "João de Queiroz",
+  "alternateName": "João Gilberto de Queiroz",
+  "jobTitle": "Senior Software Engineer",
+  "description": "Backend software engineer with 8 years building APIs, microservices, real-time and event-driven systems in C# and .NET, and cloud infrastructure on AWS.",
+  "url": "https://joaogqueiroz.github.io/",
+  "email": "mailto:joaogilberto350@hotmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Rio de Janeiro", "addressCountry": "BR" },
+  "sameAs": ["https://www.linkedin.com/in/joaogqueiroz/", "https://github.com/joaogqueiroz"],
+  "worksFor": { "@type": "Organization", "name": "Movida Aluguel de Carros" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Centro Universitário Carioca" },
+  "knowsLanguage": ["pt-BR", "en", "es"],
+  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "REST APIs", "SignalR", "Microservices", "Event-driven architecture", "DDD", "CQRS", "Entity Framework Core", "Dapper", "MySQL", "Oracle", "SQL Server", "AWS", "Docker", "Azure DevOps", "RabbitMQ", "Angular"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
 <style>
@@ -165,6 +190,15 @@
   .bullets li { display: grid; grid-template-columns: 18px 1fr; }
   .bullets li::before { content: "+"; color: var(--blue); }
   .section-note { color: var(--muted); }
+
+  /* static profile: what crawlers and no-JS visitors read; the terminal replaces it when JS runs */
+  .js #profile, html:not(.js) .terminal-only { display: none; }
+  #profile { display: flex; flex-direction: column; gap: 18px; }
+  #profile h1 { font-family: var(--pixel); font-weight: 400; color: var(--cyan); font-size: clamp(16px, 4vw, 26px); line-height: 1.4; margin: 0; }
+  #profile h2 { font-family: var(--pixel); font-weight: 400; color: var(--blue); font-size: 12px; margin: 10px 0 0; }
+  #profile h3 { font-weight: 400; margin: 0; }
+  #profile p { margin: 0; }
+  #profile .prose p + p { margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -174,25 +208,158 @@
     <div class="titlebar"><i class="sq"></i><i class="sq"></i><i class="sq"></i><span>JOAO-DE-QUEIROZ/PORTFOLIO</span><span>RIO DE JANEIRO · BR</span></div>
     <div class="screen">
       <div class="welcome">
-        <div class="banner" id="banner" aria-label="Welcome!"></div>
-        <div class="sub" id="sub"></div>
-        <div class="meta" id="meta"></div>
+        <div class="banner terminal-only" id="banner" aria-label="Welcome!"></div>
+        <div class="sub terminal-only" id="sub"></div>
+        <div class="meta terminal-only" id="meta"></div>
         <div class="quick">
           <a href="https://www.linkedin.com/in/joaogqueiroz/" target="_blank" rel="noopener">▶ LinkedIn</a><i>·</i>
           <span class="email">joaogilberto350@hotmail.com</span><i>·</i>
           <a href="https://github.com/joaogqueiroz" target="_blank" rel="noopener">▶ GitHub</a>
         </div>
-        <button class="skip" id="skip" type="button">SKIP INTRO ▶▶  (or press any key)</button>
+        <button class="skip terminal-only" id="skip" type="button">SKIP INTRO ▶▶  (or press any key)</button>
       </div>
 
-      <div id="log" aria-live="polite"></div>
+      <!-- Static copy of the content below, for crawlers, AI agents and visitors without JavaScript.
+           Keep it in sync with the jobs, projects and commands in the script, and with llms.txt. -->
+      <main id="profile">
+        <header class="prose">
+          <h1>João de Queiroz</h1>
+          <p>Senior Software Engineer · Backend · Distributed systems · .NET · AWS · Rio de Janeiro, Brazil</p>
+        </header>
 
-      <div class="promptbox">
+        <section class="prose" aria-labelledby="h-about">
+          <h2 id="h-about">About</h2>
+          <p><strong>João de Queiroz</strong> is a Senior Software Engineer from Rio de Janeiro with <strong>8 years</strong> building reliable backend systems in <strong>C# and .NET</strong>.</p>
+          <p>He has worked across logistics, financial services, HR tech and large enterprise platforms: designing APIs and microservices, real-time and event-driven systems, and cloud infrastructure on <strong>AWS</strong>.</p>
+          <ul class="stats" style="list-style:none;padding:0">
+            <li class="stat"><b>8 YRS</b><span>building backend systems</span></li>
+            <li class="stat"><b>300K+</b><span>vehicles on the Movida platform</span></li>
+            <li class="stat"><b>100+</b><span>integrations rewritten for Ipiranga</span></li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="h-exp">
+          <h2 id="h-exp">Experience</h2>
+          <ol class="jobs">
+            <li class="job now"><div class="rail"></div><article class="jbody">
+              <div class="jtop"><h3 class="company">Movida Aluguel de Carros</h3><span class="badge">NOW</span><span class="when">Aug 2023 – now · São Paulo</span></div>
+              <div class="role">Software Engineer</div>
+              <p class="jlead">Backend for Movida’s 24h roadside assistance platform: towing, locksmiths, batteries and tyres, coordinated across all of Brazil. 300,000+ tracked vehicles · 7,000+ providers · 50,000+ service requests a month.</p>
+              <ul class="bullets">
+                <li><span>Built and maintains the REST APIs used by internal systems and 7,000+ service providers</span></li>
+                <li><span>Built a reusable real-time notification microservice with SignalR</span></li>
+                <li><span>Improves production reliability: incident investigation, root-cause analysis, database tuning</span></li>
+                <li><span>Delivers features end to end across .NET and Angular 17</span></li>
+                <li><span>Works on AWS (EC2, RDS, ECR, S3) with Docker and Azure DevOps pipelines</span></li>
+                <li><span>Uses Cursor, an AI-assisted editor, to speed up refactoring and debugging</span></li>
+              </ul>
+              <p class="tags">.NET Core · C# · SignalR · EF Core · MySQL · Angular 17 · AWS · Docker · Microservices</p>
+            </article></li>
+            <li class="job"><div class="rail"></div><article class="jbody">
+              <div class="jtop"><h3 class="company">DHAUZ</h3><span class="when">Aug 2022 – Aug 2023 · Remote</span></div>
+              <div class="role">Software Engineer</div>
+              <p class="jlead">Worked on Uorkz, a hiring and talent-matching platform, and a sales-forecasting SaaS for enterprise clients.</p>
+              <ul class="bullets">
+                <li><span>Wrote Infrastructure-as-Code that sets up a full environment automatically for each new SaaS customer</span></li>
+                <li><span>Built the AWS infrastructure: EC2, RDS, SQS, S3, Route 53, CloudFormation</span></li>
+                <li><span>Designed multi-tenant database schemas in MySQL</span></li>
+                <li><span>Built .NET Core services for hiring workflows, matching logic and forecasting</span></li>
+                <li><span>Contributed Angular front-end work to ship features end to end</span></li>
+                <li><span>Set up Docker workflows connected to CI/CD pipelines</span></li>
+              </ul>
+              <p class="tags">.NET Core · C# · AWS · CloudFormation · SQS · MySQL · Angular · Docker</p>
+            </article></li>
+            <li class="job"><div class="rail"></div><article class="jbody">
+              <div class="jtop"><h3 class="company">MODALGR</h3><span class="when">Sep 2021 – Aug 2022 · Santos, SP</span></div>
+              <div class="role">Software Engineer</div>
+              <p class="jlead">Worked on Hexagon Pro, a web system for ports and terminals that traces bulk cargo exports.</p>
+              <ul class="bullets">
+                <li><span>Built backend features and APIs for cargo and terminal workflows</span></li>
+                <li><span>Wrote data access with Dapper and optimised Oracle queries over large datasets</span></li>
+                <li><span>Applied DDD and SOLID to keep the codebase clean and testable</span></li>
+                <li><span>Worked with Product Owners to match solutions to logistics needs</span></li>
+              </ul>
+              <p class="tags">C# · .NET Core · Dapper · Oracle · DDD · SOLID</p>
+            </article></li>
+            <li class="job"><div class="rail"></div><article class="jbody">
+              <div class="jtop"><h3 class="company">ed (client: CAIXA)</h3><span class="when">May 2021 – Sep 2021 · Rio de Janeiro</span></div>
+              <div class="role">Software Engineer</div>
+              <p class="jlead">Worked on XCAP do Bem, CAIXA’s online platform for selling capitalisation bonds, where every transaction has to be right.</p>
+              <ul class="bullets">
+                <li><span>Built backend APIs and business logic in .NET Core and EF Core</span></li>
+                <li><span>Wrote unit tests first (TDD) with xUnit</span></li>
+                <li><span>Designed MySQL structures for transactional flows</span></li>
+                <li><span>Worked in CI/CD workflows on Azure DevOps</span></li>
+              </ul>
+              <p class="tags">C# · .NET Core · EF Core · MySQL · xUnit · TDD</p>
+            </article></li>
+            <li class="job"><div class="rail"></div><article class="jbody">
+              <div class="jtop"><h3 class="company">Log Planning (client: Ipiranga)</h3><span class="when">Dec 2018 – May 2021 · Rio de Janeiro</span></div>
+              <div class="role">Integration Developer · Intern → Developer</div>
+              <p class="jlead">Built integrations between systems for Ipiranga, one of Brazil’s largest fuel distributors, on InterSystems Ensemble.</p>
+              <ul class="bullets">
+                <li><span>Rewrote and adjusted 100+ integrations affected by an ERP upgrade</span></li>
+                <li><span>Built SOAP and REST integrations using a service-oriented (SOA) architecture</span></li>
+                <li><span>Set up new integrations in the Kong API gateway</span></li>
+                <li><span>Started as an intern in Dec 2018 and became a developer in Mar 2020</span></li>
+                <li><span>Fixed bugs and reviewed code for the integration team</span></li>
+              </ul>
+              <p class="tags">InterSystems Ensemble · SOAP · REST · SOA · Kong</p>
+            </article></li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="h-skills">
+          <h2 id="h-skills">Skills</h2>
+          <dl class="stack">
+            <dt>Backend</dt><dd>C#, .NET Core, ASP.NET Core, REST APIs, SignalR</dd>
+            <dt>Data</dt><dd>Entity Framework Core, Dapper, MySQL, Oracle, SQL Server</dd>
+            <dt>Architecture</dt><dd>Microservices, event-driven systems, DDD, SOLID, CQRS, clean code</dd>
+            <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD</dd>
+            <dt>Integration</dt><dd>SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ</dd>
+            <dt>Testing</dt><dd>xUnit, TDD</dd>
+            <dt>Front end</dt><dd>Angular 17, TypeScript, RxJS</dd>
+            <dt>AI tools</dt><dd>Cursor</dd>
+            <dt>Languages</dt><dd>Portuguese (native), English (full professional), Spanish (professional)</dd>
+            <dt>Education</dt><dd>BSc Computer Science, Centro Universitário Carioca (2017–2021)</dd>
+            <dt>Certificates</dt><dd>AWS CloudFormation Master Class · Formação ASP.NET Core · C# e POO · Michigan English Test</dd>
+          </dl>
+        </section>
+
+        <section aria-labelledby="h-projects">
+          <h2 id="h-projects">Side projects</h2>
+          <ul class="projects">
+            <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/DevFreela">DevFreela</a><span class="kind">REST API</span></div>
+              <p class="pdesc">Backend for a freelancer marketplace, built with CQRS and MediatR, with xUnit tests. A separate payments microservice picks up requests from a RabbitMQ queue. C#, .NET, CQRS, RabbitMQ, SQL Server, xUnit.</p></li>
+            <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/MyMovieScore">MyMovieScore</a><span class="kind">REST API</span></div>
+              <p class="pdesc">Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs. .NET 6, EF Core.</p></li>
+            <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/GeekShopping">GeekShopping</a><span class="kind">Microservices</span></div>
+              <p class="pdesc">An e-commerce app split into independent microservices, each owning its own piece of the store. C#, .NET.</p></li>
+            <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/TaskControl">TaskControl</a><span class="kind">Full-stack web app</span></div>
+              <p class="pdesc">People log in, manage their tasks and see their progress in charts. ASP.NET Core MVC, SQL Server, Highcharts.</p></li>
+          </ul>
+          <a class="repo all" href="https://github.com/joaogqueiroz?tab=repositories">▶ See all repos on João’s GitHub</a>
+        </section>
+
+        <section aria-labelledby="h-contact">
+          <h2 id="h-contact">Contact</h2>
+          <div class="links">
+            <span>Email</span><a href="mailto:joaogilberto350@hotmail.com">joaogilberto350@hotmail.com</a>
+            <span>LinkedIn</span><a href="https://www.linkedin.com/in/joaogqueiroz/">linkedin.com/in/joaogqueiroz</a>
+            <span>GitHub</span><a href="https://github.com/joaogqueiroz">github.com/joaogqueiroz</a>
+            <span>Based in</span><span>Rio de Janeiro, Brazil</span>
+          </div>
+        </section>
+      </main>
+
+      <div id="log" class="terminal-only" aria-live="polite"></div>
+
+      <div class="promptbox terminal-only">
         <label for="cmd">&gt;</label>
         <input id="cmd" autocomplete="off" spellcheck="false" placeholder="type “experience” or “skills”, then Enter">
       </div>
-      <div class="chips" id="chips"></div>
-      <div class="hint">commands: experience · about · skills · projects · contact · open &lt;name&gt; · clear</div>
+      <div class="chips terminal-only" id="chips"></div>
+      <div class="hint terminal-only">commands: experience · about · skills · projects · contact · open &lt;name&gt; · clear</div>
     </div>
   </div>
 </div>

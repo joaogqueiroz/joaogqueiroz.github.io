@@ -1,0 +1,68 @@
+# João de Queiroz
+
+> Senior Software Engineer (backend, distributed systems, C#/.NET, AWS) based in Rio de Janeiro, Brazil. 8 years building REST APIs, microservices, real-time and event-driven systems, and cloud infrastructure. Currently at Movida Aluguel de Carros.
+
+- Website: https://joaogqueiroz.github.io/
+- LinkedIn: https://www.linkedin.com/in/joaogqueiroz/
+- GitHub: https://github.com/joaogqueiroz
+- Email: joaogilberto350@hotmail.com
+- Languages: Portuguese (native), English (full professional), Spanish (professional)
+- Education: BSc Computer Science, Centro Universitário Carioca (2017–2021)
+
+## Experience
+
+### Movida Aluguel de Carros — Software Engineer (Aug 2023 – present, São Paulo)
+Backend for Movida's 24h roadside assistance platform (towing, locksmiths, batteries, tyres) across Brazil. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
+- Built and maintains the REST APIs used by internal systems and 7,000+ service providers
+- Built a reusable real-time notification microservice with SignalR
+- Improves production reliability: incident investigation, root-cause analysis, database tuning
+- Delivers features end to end across .NET and Angular 17
+- Works on AWS (EC2, RDS, ECR, S3) with Docker and Azure DevOps pipelines
+- Stack: .NET Core, C#, SignalR, EF Core, MySQL, Angular 17, AWS, Docker, microservices
+
+### DHAUZ — Software Engineer (Aug 2022 – Aug 2023, remote)
+Uorkz, a hiring and talent-matching platform, and a sales-forecasting SaaS for enterprise clients.
+- Wrote Infrastructure-as-Code that provisions a full environment for each new SaaS customer
+- Built the AWS infrastructure: EC2, RDS, SQS, S3, Route 53, CloudFormation
+- Designed multi-tenant database schemas in MySQL
+- Built .NET Core services for hiring workflows, matching logic and forecasting
+- Stack: .NET Core, C#, AWS, CloudFormation, SQS, MySQL, Angular, Docker
+
+### MODALGR — Software Engineer (Sep 2021 – Aug 2022, Santos, SP)
+Hexagon Pro, a web system for ports and terminals that traces bulk cargo exports.
+- Built backend features and APIs for cargo and terminal workflows
+- Wrote data access with Dapper and optimised Oracle queries over large datasets
+- Applied DDD and SOLID to keep the codebase clean and testable
+- Stack: C#, .NET Core, Dapper, Oracle, DDD, SOLID
+
+### ed (client: CAIXA) — Software Engineer (May 2021 – Sep 2021, Rio de Janeiro)
+XCAP do Bem, CAIXA's online platform for selling capitalisation bonds.
+- Built backend APIs and business logic in .NET Core and EF Core
+- Wrote unit tests first (TDD) with xUnit
+- Designed MySQL structures for transactional flows; CI/CD on Azure DevOps
+- Stack: C#, .NET Core, EF Core, MySQL, xUnit, TDD
+
+### Log Planning (client: Ipiranga) — Integration Developer (Dec 2018 – May 2021, Rio de Janeiro)
+System integrations for Ipiranga, one of Brazil's largest fuel distributors, on InterSystems Ensemble. Started as an intern, became a developer in Mar 2020.
+- Rewrote and adjusted 100+ integrations affected by an ERP upgrade
+- Built SOAP and REST integrations using a service-oriented (SOA) architecture
+- Set up new integrations in the Kong API gateway
+- Stack: InterSystems Ensemble, SOAP, REST, SOA, Kong
+
+## Skills
+
+- Backend: C#, .NET Core, ASP.NET Core, REST APIs, SignalR
+- Data: Entity Framework Core, Dapper, MySQL, Oracle, SQL Server
+- Architecture: microservices, event-driven systems, DDD, SOLID, CQRS, clean code
+- Cloud & DevOps: AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD
+- Integration: SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ
+- Testing: xUnit, TDD
+- Front end: Angular 17, TypeScript, RxJS
+- Certificates: AWS CloudFormation Master Class, Formação ASP.NET Core, C# e POO, Michigan English Test
+
+## Side projects
+
+- [DevFreela](https://github.com/joaogqueiroz/DevFreela): freelancer marketplace API with CQRS, MediatR, xUnit and a RabbitMQ-driven payments microservice
+- [MyMovieScore](https://github.com/joaogqueiroz/MyMovieScore): movie list and rating API on .NET 6 with OMDb data, clean architecture, CQRS, Docker Compose, Swagger
+- [GeekShopping](https://github.com/joaogqueiroz/GeekShopping): e-commerce app split into independent .NET microservices
+- [TaskControl](https://github.com/joaogqueiroz/TaskControl): task management web app with progress charts (ASP.NET Core MVC, SQL Server, Highcharts)

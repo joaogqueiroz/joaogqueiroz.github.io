@@ -1,6 +1,6 @@
 # João de Queiroz
 
-> Senior Software Engineer (backend, distributed systems, C#/.NET, AWS) based in Rio de Janeiro, Brazil. 8 years building REST APIs, microservices, real-time and event-driven systems, and cloud infrastructure. Currently at Movida Aluguel de Carros.
+> Senior Software Engineer (backend, distributed systems, C#/.NET, AWS) based in Rio de Janeiro, Brazil. 7+ years building REST APIs, microservices, real-time and event-driven systems, and cloud infrastructure. Currently at Movida Aluguel de Carros.
 
 - Website: https://joaogqueiroz.github.io/
 - LinkedIn: https://www.linkedin.com/in/joaogqueiroz/
@@ -64,5 +64,5 @@ System integrations for Ipiranga, one of Brazil's largest fuel distributors, on 
 
 - [DevFreela](https://github.com/joaogqueiroz/DevFreela): freelancer marketplace API with CQRS, MediatR, xUnit and a RabbitMQ-driven payments microservice
 - [MyMovieScore](https://github.com/joaogqueiroz/MyMovieScore): movie list and rating API on .NET 6 with OMDb data, clean architecture, CQRS, Docker Compose, Swagger
-- [GeekShopping](https://github.com/joaogqueiroz/GeekShopping): e-commerce app split into independent .NET microservices
+- [GeekShopping](https://github.com/joaogqueiroz/GeekShopping): e-commerce platform split into .NET microservices (products, cart, coupons, orders, payments, email) behind an API gateway, with IdentityServer auth, RabbitMQ messaging and Docker Compose
 - [TaskControl](https://github.com/joaogqueiroz/TaskControl): task management web app with progress charts (ASP.NET Core MVC, SQL Server, Highcharts)

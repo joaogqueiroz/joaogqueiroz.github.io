@@ -9,7 +9,7 @@
 <link rel="alternate" type="text/markdown" href="llms.txt" title="Profile for LLMs">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="João de Queiroz · Senior Software Engineer">
-<meta property="og:description" content="Backend engineer, .NET and AWS. 8 years building APIs, microservices and cloud infrastructure. Rio de Janeiro, Brazil.">
+<meta property="og:description" content="Backend engineer, .NET and AWS. 7+ years building APIs, microservices and cloud infrastructure. Rio de Janeiro, Brazil.">
 <meta property="og:url" content="https://joaogqueiroz.github.io/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script>document.documentElement.classList.add("js");</script>
@@ -18,9 +18,9 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "João de Queiroz",
-  "alternateName": "João Gilberto de Queiroz",
+  "alternateName": "Joao de Queiroz",
   "jobTitle": "Senior Software Engineer",
-  "description": "Backend software engineer with 8 years building APIs, microservices, real-time and event-driven systems in C# and .NET, and cloud infrastructure on AWS.",
+  "description": "Backend software engineer with 7+ years building APIs, microservices, real-time and event-driven systems in C# and .NET, and cloud infrastructure on AWS.",
   "url": "https://joaogqueiroz.github.io/",
   "email": "mailto:joaogilberto350@hotmail.com",
   "address": { "@type": "PostalAddress", "addressLocality": "Rio de Janeiro", "addressCountry": "BR" },
@@ -229,10 +229,10 @@
 
         <section class="prose" aria-labelledby="h-about">
           <h2 id="h-about">About</h2>
-          <p><strong>João de Queiroz</strong> is a Senior Software Engineer from Rio de Janeiro with <strong>8 years</strong> building reliable backend systems in <strong>C# and .NET</strong>.</p>
+          <p><strong>João de Queiroz</strong> is a Senior Software Engineer from Rio de Janeiro with <strong>7+ years</strong> building reliable backend systems in <strong>C# and .NET</strong>.</p>
           <p>He has worked across logistics, financial services, HR tech and large enterprise platforms: designing APIs and microservices, real-time and event-driven systems, and cloud infrastructure on <strong>AWS</strong>.</p>
           <ul class="stats" style="list-style:none;padding:0">
-            <li class="stat"><b>8 YRS</b><span>building backend systems</span></li>
+            <li class="stat"><b>7+ YRS</b><span>building backend systems</span></li>
             <li class="stat"><b>300K+</b><span>vehicles on the Movida platform</span></li>
             <li class="stat"><b>100+</b><span>integrations rewritten for Ipiranga</span></li>
           </ul>
@@ -334,7 +334,7 @@
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/MyMovieScore">MyMovieScore</a><span class="kind">REST API</span></div>
               <p class="pdesc">Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs. .NET 6, EF Core.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/GeekShopping">GeekShopping</a><span class="kind">Microservices</span></div>
-              <p class="pdesc">An e-commerce app split into independent microservices, each owning its own piece of the store. C#, .NET.</p></li>
+              <p class="pdesc">An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/TaskControl">TaskControl</a><span class="kind">Full-stack web app</span></div>
               <p class="pdesc">People log in, manage their tasks and see their progress in charts. ASP.NET Core MVC, SQL Server, Highcharts.</p></li>
           </ul>
@@ -408,8 +408,8 @@ const projects = [
     desc: "Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs.",
     tags: [".NET 6", "EF Core", "CQRS", "Docker", "Swagger"], repo: "MyMovieScore" },
   { id: "geekshopping", name: "GeekShopping", kind: "Microservices",
-    desc: "An e-commerce app split into independent microservices, each owning its own piece of the store.",
-    tags: ["C#", ".NET", "Microservices"], repo: "GeekShopping" },
+    desc: "An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose.",
+    tags: ["C#", ".NET", "Microservices", "RabbitMQ", "IdentityServer", "API Gateway", "Docker"], repo: "GeekShopping" },
   { id: "taskcontrol", name: "TaskControl", kind: "Full-stack web app",
     desc: "People log in, manage their tasks and see their progress in charts.",
     tags: ["ASP.NET Core MVC", "SQL Server", "Highcharts"], repo: "TaskControl" },
@@ -422,10 +422,10 @@ const tool = (name, arg, result) => `<div class="reply tool"><div><div class="to
 
 const commands = {
   about: () => say(`
-      <p><strong>João de Queiroz</strong> is a Senior Software Engineer from Rio de Janeiro with <strong>8 years</strong> building reliable backend systems in <strong>C# and .NET</strong>.</p>
+      <p><strong>João de Queiroz</strong> is a Senior Software Engineer from Rio de Janeiro with <strong>7+ years</strong> building reliable backend systems in <strong>C# and .NET</strong>.</p>
       <p>He has worked across logistics, financial services, HR tech and large enterprise platforms: designing APIs and microservices, real-time and event-driven systems, and cloud infrastructure on <strong>AWS</strong>.</p>
       <div class="stats">
-        <div class="stat"><b>8 YRS</b><span>building backend systems</span></div>
+        <div class="stat"><b>7+ YRS</b><span>building backend systems</span></div>
         <div class="stat"><b>300K+</b><span>vehicles on the Movida platform</span></div>
         <div class="stat"><b>100+</b><span>integrations rewritten for Ipiranga</span></div>
       </div>`),
@@ -466,7 +466,7 @@ const commands = {
           <a class="repo" href="${GH}/${p.repo}" target="_blank" rel="noopener">▶ View the code: github.com/joaogqueiroz/${p.repo}</a>
         </li>`).join("")}
       </ul>
-      <a class="repo all" href="${GH}?tab=repositories" target="_blank" rel="noopener">▶ See all 42 repos on João’s GitHub</a>
+      <a class="repo all" href="${GH}?tab=repositories" target="_blank" rel="noopener">▶ See all repos on João’s GitHub</a>
     </div></div>`,
   contact: () => `
     <div class="reply"><div>

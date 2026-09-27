@@ -9,7 +9,7 @@ It's a static site built around one page, `index.html`. There's no framework, no
 ## What's on the page
 
 - **Welcome:** a typed greeting with his name, role and links to LinkedIn, email and GitHub, visible from the start.
-- **About:** a short summary and three headline numbers: 8 years, 300K+ vehicles on the Movida platform, 100+ integrations rewritten.
+- **About:** a short summary and three headline numbers: 7+ years, 300K+ vehicles on the Movida platform, 100+ integrations rewritten.
 - **Experience:** a timeline of five roles, most recent first. Each has what the product does, three key results and the tech used. Clicking a company opens the full details.
 - **Skills:** backend, data, architecture, cloud, integration, testing, languages, education and certificates.
 - **Projects:** a few side projects, each with a link to its repo, plus a link to all his repos on GitHub.

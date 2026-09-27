@@ -72,7 +72,7 @@ The terminal is built with JavaScript, and most AI crawlers don't run JavaScript
 - **JSON-LD:** a schema.org `Person` with role, location, employer, languages, skills and `sameAs` links to LinkedIn and GitHub.
 - **`llms.txt`:** a Markdown profile at `/llms.txt`, also linked from `<head>`.
 - **`robots.txt` and `sitemap.xml`:** allow all crawlers and point them to the page.
-- **Canonical URL and Open Graph tags:** for link previews on LinkedIn and chat apps.
+- **Canonical URL and Open Graph tags:** for link previews on LinkedIn and chat apps, with a 1200×627 preview image (`og-image.png`).
 
 ## Design
 

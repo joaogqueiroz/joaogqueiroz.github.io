@@ -23,7 +23,7 @@ It's a static site built around one page, `index.html`. There's no framework, no
 | `skills` | Tech stack, languages, education, certificates |
 | `projects` | Side projects from GitHub |
 | `contact` | Email, LinkedIn, GitHub |
-| `open <company>` | Full details for one role, e.g. `open movida` |
+| `open <company>` | Full details for one role, e.g. `open dhauz` |
 | `help` | List of commands |
 | `clear` | Clears the screen |
 

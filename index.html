@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="João de Queiroz — Senior Software Engineer, backend, .NET and AWS. Rio de Janeiro, Brazil.">
+<title>João de Queiroz</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --ground: #03050b;
+    --panel: #070c1a;
+    --line: #1b2a52;
+    --blue: #3b82ff;
+    --cyan: #6fd3ff;
+    --text: #dce8ff;
+    --muted: #7d93c4;
+    --dim: #6a80b0;
+    --ok: #4ade80;
+    --pixel: "Press Start 2P", ui-monospace, monospace;
+    --crt: "VT323", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  html, body { height: 100%; }
+  body {
+    background: var(--ground);
+    background-image: radial-gradient(circle at 50% 0%, #0c1a3d 0%, transparent 60%);
+    color: var(--text);
+    font-family: var(--crt);
+    font-size: 22px;
+    line-height: 1.35;
+    padding-inline: 16px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding-block: 28px 40px; }
+
+  /* pixel window: stepped corners via box-shadow, no radius */
+  .window {
+    background: var(--panel);
+    border: 4px solid var(--blue);
+    box-shadow: 6px 6px 0 0 #102a66, 0 0 40px #3b82ff22;
+    position: relative;
+  }
+  .window::after { /* scanlines */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, transparent 0 2px, #00000033 2px 3px);
+  }
+  .titlebar {
+    display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+    background: var(--blue); color: var(--ground);
+    font-family: var(--pixel); font-size: 10px;
+  }
+  .sq { width: 10px; height: 10px; background: var(--ground); }
+  .titlebar span:last-child { margin-left: auto; }
+  .screen { padding: 22px clamp(14px, 3vw, 30px) 20px; display: flex; flex-direction: column; gap: 18px; position: relative; }
+
+  /* welcome */
+  .welcome { display: grid; gap: 10px; padding-bottom: 16px; border-bottom: 4px dotted var(--line); }
+  .banner {
+    font-family: var(--pixel); color: var(--cyan);
+    font-size: clamp(22px, 6.4vw, 46px); line-height: 1.2; letter-spacing: 2px;
+    text-shadow: 4px 4px 0 #1d4ed8, 0 0 18px #6fd3ff66;
+    min-height: 1.2em; overflow-wrap: anywhere;
+  }
+  .sub { font-family: var(--pixel); font-size: clamp(10px, 2.2vw, 13px); color: var(--text); line-height: 1.8; min-height: 1.8em; }
+  .sub b { color: var(--blue); font-weight: 400; }
+  .meta { color: var(--muted); min-height: 1.35em; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .quick a, .quick span { color: var(--cyan); }
+  .quick a:hover, .quick a:focus-visible { color: var(--text); outline: none; }
+  .quick .email { user-select: all; }
+  .quick i { font-style: normal; color: var(--dim); }
+
+  /* conversation */
+  #log { display: flex; flex-direction: column; gap: 18px; }
+  .turn { display: flex; flex-direction: column; gap: 10px; }
+  .user { color: var(--cyan); }
+  .user::before { content: "> "; color: var(--blue); }
+  .reply { display: grid; grid-template-columns: 22px 1fr; column-gap: 6px; }
+  .reply::before { content: "■"; color: var(--blue); font-size: 16px; line-height: 1.8; }
+  .reply.tool::before { color: var(--ok); }
+  .reply > div { min-width: 0; }
+  .prose { max-width: 62ch; }
+  .prose p + p { margin-top: 10px; }
+  .prose strong, .hl { color: var(--cyan); font-weight: 400; }
+  .toolname { color: var(--ok); }
+  .toolname em { font-style: normal; color: var(--muted); }
+  .result { color: var(--muted); }
+  .result::before { content: "└ "; color: var(--dim); }
+
+  .projects { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; }
+  .projects li { padding: 12px 0; border-top: 2px dashed var(--line); display: grid; gap: 4px; }
+  .projects li:first-child { border-top: 0; padding-top: 2px; }
+  .phead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+  .pname { font-size: 27px; line-height: 1.1; color: var(--cyan); text-decoration: none; }
+  .pname:hover, .pname:focus-visible { color: var(--text); outline: none; }
+  .pname:hover::after, .pname:focus-visible::after { content: " ◀"; }
+  .kind { color: var(--dim); font-size: 19px; }
+  .pdesc { max-width: 62ch; }
+  .repo { justify-self: start; margin-top: 6px; color: var(--cyan); text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .repo:hover, .repo:focus-visible { color: var(--text); outline: none; }
+  .repo.all { display: inline-block; margin-top: 4px; padding: 6px 12px; text-decoration: none; box-shadow: inset 0 0 0 2px var(--blue), 3px 3px 0 0 #102a66; }
+  .repo.all:hover, .repo.all:focus-visible { background: var(--blue); color: var(--ground); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tag { font-size: 18px; color: var(--muted); background: #0e1833; padding: 0 8px; box-shadow: inset 0 0 0 2px var(--line); }
+
+  .stack { display: grid; grid-template-columns: max-content 1fr; gap: 4px 20px; }
+  .stack dt { color: var(--muted); }
+  .stack dd { margin: 0; }
+  @media (max-width: 540px) { .stack { grid-template-columns: 1fr; gap: 0; } .stack dd { margin-bottom: 8px; } }
+  .links { display: grid; grid-template-columns: max-content 1fr; gap: 2px 20px; }
+  .links a, a.go { color: var(--cyan); overflow-wrap: anywhere; }
+
+  /* prompt */
+  .promptbox { display: flex; align-items: center; gap: 10px; padding: 8px 12px; box-shadow: inset 0 0 0 3px var(--line); }
+  .promptbox:focus-within { box-shadow: inset 0 0 0 3px var(--blue); }
+  .promptbox label { color: var(--blue); }
+  .promptbox input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: var(--text); font: inherit; caret-color: var(--cyan); }
+  .promptbox input::placeholder { color: var(--dim); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    font-family: var(--pixel); font-size: 10px; cursor: pointer;
+    background: var(--ground); color: var(--text); border: 0; padding: 9px 12px;
+    box-shadow: inset 0 0 0 2px var(--blue), 3px 3px 0 0 #102a66;
+  }
+  .chip:hover, .chip:focus-visible { background: var(--blue); color: var(--ground); outline: none; }
+  .chip:active { transform: translate(3px, 3px); box-shadow: inset 0 0 0 2px var(--blue); }
+  .hint { color: var(--dim); font-size: 18px; }
+
+  .cursor { display: inline-block; width: .55em; height: 1em; background: var(--cyan); vertical-align: -0.12em; margin-left: 2px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .cursor { animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .appear { animation: pop .18s steps(3) both; }
+    @keyframes pop { from { opacity: 0; } to { opacity: 1; } }
+  }
+  .skip { font-family: var(--pixel); font-size: 9px; color: var(--dim); background: none; border: 0; cursor: pointer; justify-self: start; padding: 0; }
+  .skip:hover, .skip:focus-visible { color: var(--cyan); outline: none; }
+
+  /* high-score stats */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-top: 4px; }
+  .stat { padding: 10px 12px; box-shadow: inset 0 0 0 2px var(--line); display: grid; gap: 6px; }
+  .stat b { font-family: var(--pixel); font-weight: 400; font-size: 17px; color: var(--cyan); text-shadow: 2px 2px 0 #1d4ed8; }
+  .stat span { color: var(--muted); font-size: 19px; line-height: 1.15; }
+
+  /* experience */
+  .jobs { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; }
+  .job { display: grid; grid-template-columns: 16px 1fr; column-gap: 14px; }
+  .rail { position: relative; }
+  .rail::before { content: ""; position: absolute; left: 5px; top: 10px; width: 6px; height: 6px; background: var(--blue); box-shadow: 0 0 0 3px var(--panel), 0 0 0 5px var(--blue); }
+  .rail::after { content: ""; position: absolute; left: 7px; top: 26px; bottom: -6px; width: 2px; background: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 8px); }
+  .job:last-child .rail::after { display: none; }
+  .job.now .rail::before { background: var(--cyan); box-shadow: 0 0 0 3px var(--panel), 0 0 0 5px var(--cyan); }
+  .jbody { padding-bottom: 22px; display: grid; gap: 4px; min-width: 0; }
+  .jtop { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; }
+  .company { font-size: 30px; line-height: 1.1; color: var(--cyan); text-decoration: none; }
+  a.company:hover, a.company:focus-visible { color: var(--text); outline: none; }
+  a.company:hover::after, a.company:focus-visible::after { content: " ◀"; }
+  .badge { font-family: var(--pixel); font-size: 8px; color: var(--ground); background: var(--cyan); padding: 4px 6px; align-self: center; }
+  .when { color: var(--muted); font-size: 21px; }
+  .role { color: var(--text); }
+  .jlead { max-width: 62ch; }
+  .bullets { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 4px; max-width: 62ch; }
+  .bullets li { display: grid; grid-template-columns: 18px 1fr; }
+  .bullets li::before { content: "+"; color: var(--blue); }
+  .section-note { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="window">
+    <div class="titlebar"><i class="sq"></i><i class="sq"></i><i class="sq"></i><span>JOAO-DE-QUEIROZ/PORTFOLIO</span><span>RIO DE JANEIRO · BR</span></div>
+    <div class="screen">
+      <div class="welcome">
+        <div class="banner" id="banner" aria-label="Welcome!"></div>
+        <div class="sub" id="sub"></div>
+        <div class="meta" id="meta"></div>
+        <div class="quick">
+          <a href="https://www.linkedin.com/in/joaogqueiroz/" target="_blank" rel="noopener">▶ LinkedIn</a><i>·</i>
+          <span class="email">joaogilberto350@hotmail.com</span><i>·</i>
+          <a href="https://github.com/joaogqueiroz" target="_blank" rel="noopener">▶ GitHub</a>
+        </div>
+        <button class="skip" id="skip" type="button">SKIP INTRO ▶▶  (or press any key)</button>
+      </div>
+
+      <div id="log" aria-live="polite"></div>
+
+      <div class="promptbox">
+        <label for="cmd">&gt;</label>
+        <input id="cmd" autocomplete="off" spellcheck="false" placeholder="type “experience” or “skills”, then Enter">
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="hint">commands: experience · about · skills · projects · contact · open &lt;name&gt; · clear</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const GH = "https://github.com/joaogqueiroz";
+const LI = "https://www.linkedin.com/in/joaogqueiroz/";
+const EMAIL = "joaogilberto350@hotmail.com";
+
+/* ---------- work history (from LinkedIn) ---------- */
+const jobs = [
+  { id: "movida", company: "Movida", full: "Movida Aluguel de Carros", role: "Software Engineer", when: "Aug 2023 – now", where: "São Paulo", now: true,
+    lead: "Backend for Movida’s 24h roadside assistance platform: towing, locksmiths, batteries and tyres, coordinated across all of Brazil.",
+    key: ["Built and maintains the REST APIs used by internal systems and 7,000+ service providers", "Built a reusable real-time notification microservice with SignalR", "Improves production reliability: incident investigation, root-cause analysis, database tuning"],
+    more: ["Delivers features end to end across .NET and Angular 17", "Works on AWS (EC2, RDS, ECR, S3) with Docker and Azure DevOps pipelines", "Uses Cursor, an AI-assisted editor, to speed up refactoring and debugging"],
+    scale: "300,000+ tracked vehicles · 7,000+ providers · 50,000+ service requests a month",
+    tags: [".NET Core", "C#", "SignalR", "EF Core", "MySQL", "Angular 17", "AWS", "Docker", "Microservices"] },
+  { id: "dhauz", company: "Dhauz", full: "DHAUZ", role: "Software Engineer", when: "Aug 2022 – Aug 2023", where: "Remote",
+    lead: "Worked on Uorkz, a hiring and talent-matching platform, and a sales-forecasting SaaS for enterprise clients.",
+    key: ["Wrote Infrastructure-as-Code that sets up a full environment automatically for each new SaaS customer", "Built the AWS infrastructure: EC2, RDS, SQS, S3, Route 53, CloudFormation", "Designed multi-tenant database schemas in MySQL"],
+    more: ["Built .NET Core services for hiring workflows, matching logic and forecasting", "Contributed Angular front-end work to ship features end to end", "Set up Docker workflows connected to CI/CD pipelines"],
+    tags: [".NET Core", "C#", "AWS", "CloudFormation", "SQS", "MySQL", "Angular", "Docker"] },
+  { id: "modalgr", company: "ModalGR", full: "MODALGR", role: "Software Engineer", when: "Sep 2021 – Aug 2022", where: "Santos, SP",
+    lead: "Worked on Hexagon Pro, a web system for ports and terminals that traces bulk cargo exports.",
+    key: ["Built backend features and APIs for cargo and terminal workflows", "Wrote data access with Dapper and optimised Oracle queries over large datasets", "Applied DDD and SOLID to keep the codebase clean and testable"],
+    more: ["Worked with Product Owners to match solutions to logistics needs"],
+    tags: ["C#", ".NET Core", "Dapper", "Oracle", "DDD", "SOLID"] },
+  { id: "caixa", company: "ed · CAIXA", full: "ed (client: CAIXA)", role: "Software Engineer", when: "May 2021 – Sep 2021", where: "Rio de Janeiro",
+    lead: "Worked on XCAP do Bem, CAIXA’s online platform for selling capitalisation bonds, where every transaction has to be right.",
+    key: ["Built backend APIs and business logic in .NET Core and EF Core", "Wrote unit tests first (TDD) with xUnit", "Designed MySQL structures for transactional flows"],
+    more: ["Worked in CI/CD workflows on Azure DevOps"],
+    tags: ["C#", ".NET Core", "EF Core", "MySQL", "xUnit", "TDD"] },
+  { id: "logplanning", company: "Log Planning", full: "Log Planning (client: Ipiranga)", role: "Integration Developer · Intern → Developer", when: "Dec 2018 – May 2021", where: "Rio de Janeiro",
+    lead: "Built integrations between systems for Ipiranga, one of Brazil’s largest fuel distributors, on InterSystems Ensemble.",
+    key: ["Rewrote and adjusted 100+ integrations affected by an ERP upgrade", "Built SOAP and REST integrations using a service-oriented (SOA) architecture", "Set up new integrations in the Kong API gateway"],
+    more: ["Started as an intern in Dec 2018 and became a developer in Mar 2020", "Fixed bugs and reviewed code for the integration team"],
+    tags: ["InterSystems Ensemble", "SOAP", "REST", "SOA", "Kong"] },
+];
+
+/* ---------- side projects (from GitHub) ---------- */
+const projects = [
+  { id: "devfreela", name: "DevFreela", kind: "REST API",
+    desc: "Backend for a freelancer marketplace, built with CQRS and MediatR, with xUnit tests. A separate payments microservice picks up requests from a RabbitMQ queue.",
+    tags: ["C#", ".NET", "CQRS", "RabbitMQ", "SQL Server", "xUnit"], repo: "DevFreela" },
+  { id: "mymoviescore", name: "MyMovieScore", kind: "REST API",
+    desc: "Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs.",
+    tags: [".NET 6", "EF Core", "CQRS", "Docker", "Swagger"], repo: "MyMovieScore" },
+  { id: "geekshopping", name: "GeekShopping", kind: "Microservices",
+    desc: "An e-commerce app split into independent microservices, each owning its own piece of the store.",
+    tags: ["C#", ".NET", "Microservices"], repo: "GeekShopping" },
+  { id: "taskcontrol", name: "TaskControl", kind: "Full-stack web app",
+    desc: "People log in, manage their tasks and see their progress in charts.",
+    tags: ["ASP.NET Core MVC", "SQL Server", "Highcharts"], repo: "TaskControl" },
+];
+
+const tags = (t) => `<div class="tags">${t.map(x => `<span class="tag">${x}</span>`).join("")}</div>`;
+const bullets = (b) => `<ul class="bullets">${b.map(x => `<li><span>${x}</span></li>`).join("")}</ul>`;
+const say = (html) => `<div class="reply"><div class="prose">${html}</div></div>`;
+const tool = (name, arg, result) => `<div class="reply tool"><div><div class="toolname">${name}<em>(${arg})</em></div>${result ? `<div class="result">${result}</div>` : ""}</div></div>`;
+
+const commands = {
+  about: () => say(`
+      <p><strong>João de Queiroz</strong> is a Senior Software Engineer from Rio de Janeiro with <strong>8 years</strong> building reliable backend systems in <strong>C# and .NET</strong>.</p>
+      <p>He has worked across logistics, financial services, HR tech and large enterprise platforms: designing APIs and microservices, real-time and event-driven systems, and cloud infrastructure on <strong>AWS</strong>.</p>
+      <div class="stats">
+        <div class="stat"><b>8 YRS</b><span>building backend systems</span></div>
+        <div class="stat"><b>300K+</b><span>vehicles on the Movida platform</span></div>
+        <div class="stat"><b>100+</b><span>integrations rewritten for Ipiranga</span></div>
+      </div>`),
+  experience: () => tool("Read", "linkedin.com/in/joaogqueiroz", "5 roles · Dec 2018 – now · click a company for details") + `
+    <div class="reply"><div>
+      <ul class="jobs">${jobs.map(j => `
+        <li class="job${j.now ? " now" : ""}"><div class="rail"></div><div class="jbody">
+          <div class="jtop"><a class="company" href="#" data-open="${j.id}">${j.company}</a>${j.now ? `<span class="badge">NOW</span>` : ""}<span class="when">${j.when} · ${j.where}</span></div>
+          <div class="role">${j.role}</div>
+          <div class="jlead">${j.lead}</div>
+          ${bullets(j.key)}
+          ${tags(j.tags)}
+        </div></li>`).join("")}
+      </ul>
+    </div></div>`,
+  skills: () => `
+    <div class="reply"><div>
+      <dl class="stack">
+        <dt>Backend</dt><dd>C#, .NET Core, ASP.NET Core, REST APIs, SignalR</dd>
+        <dt>Data</dt><dd>Entity Framework Core, Dapper, MySQL, Oracle, SQL Server</dd>
+        <dt>Architecture</dt><dd>Microservices, event-driven systems, DDD, SOLID, CQRS, clean code</dd>
+        <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD</dd>
+        <dt>Integration</dt><dd>SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ</dd>
+        <dt>Testing</dt><dd>xUnit, TDD</dd>
+        <dt>Front end</dt><dd>Angular 17, TypeScript, RxJS</dd>
+        <dt>AI tools</dt><dd>Cursor</dd>
+        <dt>Languages</dt><dd>Portuguese (native), English (full professional), Spanish (professional)</dd>
+        <dt>Education</dt><dd>BSc Computer Science, Centro Universitário Carioca (2017–2021)</dd>
+        <dt>Certificates</dt><dd>AWS CloudFormation Master Class · Formação ASP.NET Core · C# e POO · Michigan English Test</dd>
+      </dl>
+    </div></div>`,
+  projects: () => tool("List", "github.com/joaogqueiroz", "side projects to study more about code, outside my work routine") + `
+    <div class="reply"><div>
+      <ul class="projects">
+        ${projects.map(p => `<li>
+          <div class="phead"><a class="pname" href="${GH}/${p.repo}" target="_blank" rel="noopener">${p.name}</a><span class="kind">${p.kind}</span></div>
+          <div class="pdesc">${p.desc}</div>${tags(p.tags)}
+          <a class="repo" href="${GH}/${p.repo}" target="_blank" rel="noopener">▶ View the code: github.com/joaogqueiroz/${p.repo}</a>
+        </li>`).join("")}
+      </ul>
+      <a class="repo all" href="${GH}?tab=repositories" target="_blank" rel="noopener">▶ See all 42 repos on João’s GitHub</a>
+    </div></div>`,
+  contact: () => `
+    <div class="reply"><div>
+      <div class="links">
+        <span>Email</span><span class="hl" style="user-select:all">${EMAIL}</span>
+        <span>LinkedIn</span><a href="${LI}" target="_blank" rel="noopener">linkedin.com/in/joaogqueiroz</a>
+        <span>GitHub</span><a href="${GH}" target="_blank" rel="noopener">github.com/joaogqueiroz</a>
+        <span>Based in</span><span>Rio de Janeiro, Brazil</span>
+      </div>
+    </div></div>`,
+  help: () => say(`<p>Commands: <strong>experience</strong>, <strong>about</strong>, <strong>skills</strong>, <strong>projects</strong>, <strong>contact</strong>, <strong>open &lt;company&gt;</strong> (for example “open movida”), and <strong>clear</strong>.</p>`),
+};
+commands.exp = commands.experience;
+commands.stack = commands.skills;
+
+function openItem(id) {
+  const j = jobs.find(x => x.id === id || x.id.startsWith(id) || x.company.toLowerCase().startsWith(id));
+  if (!j) return say(`<p>Nothing called “${id.replace(/</g,"&lt;")}”. Type <strong>experience</strong> to see his roles.</p>`);
+  return tool("Read", `experience/${j.id}.md`) + `
+    <div class="reply"><div class="prose">
+      <p><strong>${j.full}</strong> · ${j.role}<br><span class="section-note">${j.when} · ${j.where}</span></p>
+      <p>${j.lead}</p>
+      ${j.scale ? `<p class="hl">${j.scale}</p>` : ""}
+      ${bullets([...j.key, ...j.more])}
+      ${tags(j.tags)}
+    </div></div>`;
+}
+function respond(text) {
+  const cmd = text.toLowerCase();
+  if (cmd.startsWith("open ")) return openItem(cmd.slice(5).trim());
+  if (commands[cmd]) return commands[cmd]();
+  return say(`<p>I don’t know “${text.replace(/</g,"&lt;")}” yet. Type <strong>help</strong> to see what works.</p>`);
+}
+
+/* ---------- typing engine ---------- */
+const $ = (id) => document.getElementById(id);
+const log = $("log"), input = $("cmd");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let fast = reduce;               // skip intro → everything instant
+let busy = false, introDone = false;
+const wait = (ms) => fast ? Promise.resolve() : new Promise(r => setTimeout(r, ms));
+const cursor = () => { const c = document.createElement("span"); c.className = "cursor"; return c; };
+
+async function typeInto(node, text, speed = 45) {
+  const c = cursor(); node.textContent = ""; node.append(c);
+  for (const ch of text) {
+    if (fast) { node.textContent = text; return; }
+    c.before(ch);
+    await wait(speed + Math.random() * speed * 0.6);
+  }
+  c.remove();
+}
+
+async function run(raw) {
+  const text = raw.trim().replace(/^\//, "");
+  if (!text) return;
+  if (text.toLowerCase() === "clear") { log.innerHTML = ""; return; }
+  busy = true;
+  const turn = document.createElement("div"); turn.className = "turn";
+  const user = document.createElement("div"); user.className = "user";
+  turn.append(user); log.append(turn);
+  await typeInto(user, text, 55);
+  await wait(250);
+  const tmp = document.createElement("div"); tmp.innerHTML = respond(text);
+  for (const block of [...tmp.children]) {
+    // reveal a reply piece by piece, like output streaming in
+    const items = block.querySelectorAll(".prose > p, .stat, .job, .projects > li, .repo.all, dt, dd, .toolname, .result, .links > *");
+    items.forEach(i => { if (!fast) i.style.visibility = "hidden"; });
+    turn.append(block);
+    for (const i of items) { await wait(110); i.style.visibility = ""; i.classList.add("appear"); }
+    await wait(120);
+  }
+  if (!fast) turn.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  busy = false;
+}
+
+async function intro() {
+  await typeInto($("banner"), "WELCOME!", 110);
+  await wait(200);
+  const sub = $("sub"); await typeInto(sub, "I'M JOAO DE QUEIROZ", 40);
+  sub.innerHTML = "I'M <b>JOÃO DE QUEIROZ</b>";
+  await wait(150);
+  await typeInto($("meta"), "Senior Software Engineer · Backend · Distributed systems · .NET · AWS", 20);
+  await wait(500);
+  await run("about");
+  await wait(600);
+  await run("experience");
+  $("skip").hidden = true;
+  $("banner").append(cursor());
+}
+
+const skipIntro = () => { if (!introDone) fast = true; };
+document.addEventListener("keydown", skipIntro);
+document.addEventListener("pointerdown", skipIntro);
+
+$("chips").append(...["experience", "about", "skills", "projects", "contact"].map(c => {
+  const b = document.createElement("button"); b.className = "chip"; b.type = "button"; b.textContent = c.toUpperCase();
+  b.onclick = () => { if (!busy && introDone) { fast = reduce; run(c); } };
+  return b;
+}));
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !busy && introDone) { fast = reduce; run(input.value); input.value = ""; }
+});
+log.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-open]");
+  if (a) { e.preventDefault(); if (!busy && introDone) { fast = reduce; run("open " + a.dataset.open); } }
+});
+
+intro().then(() => { fast = reduce; introDone = true; });
+</script>
+</body>
+</html>

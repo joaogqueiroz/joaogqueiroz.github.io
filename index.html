@@ -329,14 +329,16 @@
         <section aria-labelledby="h-projects">
           <h2 id="h-projects">Side projects</h2>
           <ul class="projects">
+            <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/GeekShopping">GeekShopping</a><span class="kind">Microservices</span></div>
+              <p class="pdesc">An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose. C#, .NET 8, Ocelot, RabbitMQ, SQL Server, Docker.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/DevFreela">DevFreela</a><span class="kind">REST API</span></div>
-              <p class="pdesc">Backend for a freelancer marketplace, built with CQRS and MediatR, with xUnit tests. A separate payments microservice picks up requests from a RabbitMQ queue. C#, .NET, CQRS, RabbitMQ, SQL Server, xUnit.</p></li>
+              <p class="pdesc">Backend for a freelancer marketplace, built with CQRS and MediatR, JWT roles and xUnit tests. Finishing a project sends the payment to a separate microservice over RabbitMQ and closes the project when it is approved. C#, .NET 8, EF Core, RabbitMQ, SQL Server, xUnit.</p></li>
+            <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/DevFreela.Payments">DevFreela.Payments</a><span class="kind">Microservice</span></div>
+              <p class="pdesc">The payment service split out of DevFreela. It consumes payment requests from RabbitMQ and publishes a payment-approved event back. C#, .NET 8, RabbitMQ, BackgroundService.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/MyMovieScore">MyMovieScore</a><span class="kind">REST API</span></div>
               <p class="pdesc">Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs. .NET 6, EF Core.</p></li>
-            <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/GeekShopping">GeekShopping</a><span class="kind">Microservices</span></div>
-              <p class="pdesc">An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/TaskControl">TaskControl</a><span class="kind">Full-stack web app</span></div>
-              <p class="pdesc">People log in, manage their tasks and see their progress in charts. ASP.NET Core MVC, SQL Server, Highcharts.</p></li>
+              <p class="pdesc">People log in, manage their tasks, see their progress in charts and export PDF reports. ASP.NET Core MVC, .NET 8, Dapper, SQL Server, Highcharts.</p></li>
           </ul>
           <a class="repo all" href="https://github.com/joaogqueiroz?tab=repositories">▶ See all repos on João’s GitHub</a>
         </section>
@@ -401,18 +403,21 @@ const jobs = [
 
 /* ---------- side projects (from GitHub) ---------- */
 const projects = [
+  { id: "geekshopping", name: "GeekShopping", kind: "Microservices",
+    desc: "An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose.",
+    tags: ["C#", ".NET 8", "Microservices", "RabbitMQ", "IdentityServer", "Ocelot", "Docker"], repo: "GeekShopping" },
   { id: "devfreela", name: "DevFreela", kind: "REST API",
-    desc: "Backend for a freelancer marketplace, built with CQRS and MediatR, with xUnit tests. A separate payments microservice picks up requests from a RabbitMQ queue.",
-    tags: ["C#", ".NET", "CQRS", "RabbitMQ", "SQL Server", "xUnit"], repo: "DevFreela" },
+    desc: "Backend for a freelancer marketplace, built with CQRS and MediatR, JWT roles and xUnit tests. Finishing a project sends the payment to a separate microservice over RabbitMQ and closes the project when it is approved.",
+    tags: ["C#", ".NET 8", "CQRS", "EF Core", "RabbitMQ", "SQL Server", "xUnit"], repo: "DevFreela" },
+  { id: "devfreelapayments", name: "DevFreela.Payments", kind: "Microservice",
+    desc: "The payment service split out of DevFreela. It consumes payment requests from RabbitMQ and publishes a payment-approved event back.",
+    tags: ["C#", ".NET 8", "RabbitMQ", "BackgroundService"], repo: "DevFreela.Payments" },
   { id: "mymoviescore", name: "MyMovieScore", kind: "REST API",
     desc: "Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs.",
     tags: [".NET 6", "EF Core", "CQRS", "Docker", "Swagger"], repo: "MyMovieScore" },
-  { id: "geekshopping", name: "GeekShopping", kind: "Microservices",
-    desc: "An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose.",
-    tags: ["C#", ".NET", "Microservices", "RabbitMQ", "IdentityServer", "API Gateway", "Docker"], repo: "GeekShopping" },
   { id: "taskcontrol", name: "TaskControl", kind: "Full-stack web app",
-    desc: "People log in, manage their tasks and see their progress in charts.",
-    tags: ["ASP.NET Core MVC", "SQL Server", "Highcharts"], repo: "TaskControl" },
+    desc: "People log in, manage their tasks, see their progress in charts and export PDF reports.",
+    tags: ["ASP.NET Core MVC", ".NET 8", "Dapper", "SQL Server", "Highcharts"], repo: "TaskControl" },
 ];
 
 const tags = (t) => `<div class="tags">${t.map(x => `<span class="tag">${x}</span>`).join("")}</div>`;

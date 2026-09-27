@@ -62,7 +62,8 @@ System integrations for Ipiranga, one of Brazil's largest fuel distributors, on 
 
 ## Side projects
 
-- [DevFreela](https://github.com/joaogqueiroz/DevFreela): freelancer marketplace API with CQRS, MediatR, xUnit and a RabbitMQ-driven payments microservice
+- [GeekShopping](https://github.com/joaogqueiroz/GeekShopping): e-commerce platform split into .NET 8 microservices (products, cart, coupons, orders, payments, email) behind an Ocelot API gateway, with IdentityServer auth, RabbitMQ messaging and Docker Compose
+- [DevFreela](https://github.com/joaogqueiroz/DevFreela): freelancer marketplace API on .NET 8 with CQRS, MediatR, JWT roles, EF Core and xUnit; finishing a project sends the payment to DevFreela.Payments over RabbitMQ
+- [DevFreela.Payments](https://github.com/joaogqueiroz/DevFreela.Payments): payment microservice split out of DevFreela; consumes payment requests and publishes payment-approved events over RabbitMQ (.NET 8)
 - [MyMovieScore](https://github.com/joaogqueiroz/MyMovieScore): movie list and rating API on .NET 6 with OMDb data, clean architecture, CQRS, Docker Compose, Swagger
-- [GeekShopping](https://github.com/joaogqueiroz/GeekShopping): e-commerce platform split into .NET microservices (products, cart, coupons, orders, payments, email) behind an API gateway, with IdentityServer auth, RabbitMQ messaging and Docker Compose
-- [TaskControl](https://github.com/joaogqueiroz/TaskControl): task management web app with progress charts (ASP.NET Core MVC, SQL Server, Highcharts)
+- [TaskControl](https://github.com/joaogqueiroz/TaskControl): task management web app with progress charts and PDF reports (ASP.NET Core MVC, .NET 8, Dapper, SQL Server, Highcharts)

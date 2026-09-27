@@ -58,6 +58,7 @@ System integrations for Ipiranga, one of Brazil's largest fuel distributors, on 
 - Integration: SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ
 - Testing: xUnit, TDD
 - Front end: Angular 17, TypeScript, RxJS
+- AI tools: Claude Code, Cursor
 - Certificates: AWS CloudFormation Master Class, Formação ASP.NET Core, C# e POO, Michigan English Test
 
 ## Side projects

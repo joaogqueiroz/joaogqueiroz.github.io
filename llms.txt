@@ -1,4 +1,4 @@
-# João de Queiroz
+# Joao de Queiroz
 
 > Senior Software Engineer (backend, distributed systems, C#/.NET, AWS) based in Rio de Janeiro, Brazil. 7+ years building REST APIs, microservices, real-time and event-driven systems, and cloud infrastructure. Currently at Movida Aluguel de Carros.
 

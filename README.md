@@ -1,6 +1,6 @@
-# João de Queiroz · Portfolio
+# Joao de Queiroz · Portfolio
 
-An 8-bit, terminal-style portfolio for **João de Queiroz**, Senior Software Engineer (backend, .NET, AWS) in Rio de Janeiro, Brazil.
+An 8-bit, terminal-style portfolio for **Joao de Queiroz**, Senior Software Engineer (backend, .NET, AWS) in Rio de Janeiro, Brazil.
 
 The page looks like a retro terminal session. It types out a welcome, then runs the `about` and `experience` commands by itself, so visitors see his work history without doing anything. After that they can explore with commands or buttons.
 
@@ -90,5 +90,5 @@ The terminal is built with JavaScript, and most AI crawlers don't run JavaScript
 
 ## Content sources
 
-- **Experience:** João's LinkedIn profile.
+- **Experience:** Joao's LinkedIn profile.
 - **Side projects:** his public GitHub, [@joaogqueiroz](https://github.com/joaogqueiroz).

@@ -54,17 +54,17 @@ System integrations for Ipiranga, one of Brazil's largest fuel distributors, on 
 - Backend: C#, .NET Core, ASP.NET Core, REST APIs, SignalR
 - Data: Entity Framework Core, Dapper, MySQL, Oracle, SQL Server
 - Architecture: microservices, event-driven systems, DDD, SOLID, CQRS, clean code
-- Cloud & DevOps: AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD
+- Cloud & DevOps: AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD, GitHub Actions
 - Integration: SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ
-- Testing: xUnit, TDD
+- Testing: xUnit, Moq, TDD, integration tests (WebApplicationFactory, Testcontainers)
 - Front end: Angular 17, TypeScript, RxJS
 - AI tools: Claude Code, Cursor
 - Certificates: AWS CloudFormation Master Class, Formação ASP.NET Core, C# e POO, Michigan English Test
 
 ## Side projects
 
-- [GeekShopping](https://github.com/joaogqueiroz/GeekShopping): e-commerce platform split into .NET 8 microservices (products, cart, coupons, orders, payments, email) behind an Ocelot API gateway, with IdentityServer auth, RabbitMQ messaging and Docker Compose
-- [DevFreela](https://github.com/joaogqueiroz/DevFreela): freelancer marketplace API on .NET 8 with CQRS, MediatR, JWT roles, EF Core and xUnit; finishing a project sends the payment to DevFreela.Payments over RabbitMQ
-- [DevFreela.Payments](https://github.com/joaogqueiroz/DevFreela.Payments): payment microservice split out of DevFreela; consumes payment requests and publishes payment-approved events over RabbitMQ (.NET 8)
-- [MyMovieScore](https://github.com/joaogqueiroz/MyMovieScore): movie list and rating API on .NET 8 with OMDb data, clean architecture, CQRS, Docker Compose, Swagger
-- [TaskControl](https://github.com/joaogqueiroz/TaskControl): task management web app with progress charts and PDF reports (ASP.NET Core MVC, .NET 8, Dapper, SQL Server, Highcharts)
+- [GeekShopping](https://github.com/joaogqueiroz/GeekShopping): e-commerce platform split into .NET 8 microservices (products, cart, coupons, orders, payments, email) behind an Ocelot API gateway, with IdentityServer auth, RabbitMQ messaging and Docker Compose; each cart is tied to the signed-in user's token; unit and API tests against SQL Server in containers
+- [DevFreela](https://github.com/joaogqueiroz/DevFreela): freelancer marketplace API on .NET 8 with CQRS, MediatR, JWT roles and EF Core; finishing a project sends the payment to DevFreela.Payments over RabbitMQ; unit tests and API tests against SQL Server and RabbitMQ in containers (xUnit, Testcontainers)
+- [DevFreela.Payments](https://github.com/joaogqueiroz/DevFreela.Payments): payment microservice split out of DevFreela; consumes payment requests over RabbitMQ, checks the card data (Luhn, CVV, expiry) and publishes a payment-approved event only for approved payments; tested end to end against RabbitMQ in a container (.NET 8)
+- [MyMovieScore](https://github.com/joaogqueiroz/MyMovieScore): movie list and rating API on .NET 8 with details and external ratings from OMDb, JWT auth, clean architecture, CQRS, Docker Compose, Swagger; unit and API tests against SQL Server in a container
+- [TaskControl](https://github.com/joaogqueiroz/TaskControl): task management web app with progress charts and PDF reports (ASP.NET Core MVC, .NET 8, Dapper, SQL Server, Highcharts); unit tests and repository tests against SQL Server in a container

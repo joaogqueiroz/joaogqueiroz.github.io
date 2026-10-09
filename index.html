@@ -33,7 +33,7 @@
   "worksFor": { "@type": "Organization", "name": "Movida Aluguel de Carros" },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Centro Universitário Carioca" },
   "knowsLanguage": ["pt-BR", "en", "es"],
-  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "REST APIs", "SignalR", "Microservices", "Event-driven architecture", "DDD", "CQRS", "Entity Framework Core", "Dapper", "MySQL", "Oracle", "SQL Server", "AWS", "Docker", "Azure DevOps", "RabbitMQ", "Angular", "AI-assisted development", "Claude Code", "Cursor"]
+  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "REST APIs", "SignalR", "Microservices", "Event-driven architecture", "DDD", "CQRS", "Entity Framework Core", "Dapper", "MySQL", "Oracle", "SQL Server", "AWS", "Docker", "Azure DevOps", "GitHub Actions", "RabbitMQ", "xUnit", "Testcontainers", "Angular", "AI-assisted development", "Claude Code", "Cursor"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -320,9 +320,9 @@
             <dt>Backend</dt><dd>C#, .NET Core, ASP.NET Core, REST APIs, SignalR</dd>
             <dt>Data</dt><dd>Entity Framework Core, Dapper, MySQL, Oracle, SQL Server</dd>
             <dt>Architecture</dt><dd>Microservices, event-driven systems, DDD, SOLID, CQRS, clean code</dd>
-            <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD</dd>
+            <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD, GitHub Actions</dd>
             <dt>Integration</dt><dd>SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ</dd>
-            <dt>Testing</dt><dd>xUnit, TDD</dd>
+            <dt>Testing</dt><dd>xUnit, Moq, TDD, integration tests (WebApplicationFactory, Testcontainers)</dd>
             <dt>Front end</dt><dd>Angular 17, TypeScript, RxJS</dd>
             <dt>AI tools</dt><dd>Claude Code, Cursor</dd>
             <dt>Languages</dt><dd>Portuguese (native), English (full professional), Spanish (professional)</dd>
@@ -335,15 +335,15 @@
           <h2 id="h-projects">Side projects</h2>
           <ul class="projects">
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/GeekShopping">GeekShopping</a><span class="kind">Microservices</span></div>
-              <p class="pdesc">An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose. C#, .NET 8, Ocelot, RabbitMQ, SQL Server, Docker.</p></li>
+              <p class="pdesc">An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Each cart is tied to the signed-in user’s token. Unit and API tests run against SQL Server in containers. Runs with Docker Compose. C#, .NET 8, Ocelot, RabbitMQ, SQL Server, Docker, xUnit, Testcontainers.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/DevFreela">DevFreela</a><span class="kind">REST API</span></div>
-              <p class="pdesc">Backend for a freelancer marketplace, built with CQRS and MediatR, JWT roles and xUnit tests. Finishing a project sends the payment to a separate microservice over RabbitMQ and closes the project when it is approved. C#, .NET 8, EF Core, RabbitMQ, SQL Server, xUnit.</p></li>
+              <p class="pdesc">Backend for a freelancer marketplace, built with CQRS and MediatR and JWT roles. Finishing a project sends the payment to a separate microservice over RabbitMQ and closes the project when it is approved. Unit tests, plus API tests against SQL Server and RabbitMQ in containers. C#, .NET 8, EF Core, RabbitMQ, SQL Server, xUnit, Testcontainers.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/DevFreela.Payments">DevFreela.Payments</a><span class="kind">Microservice</span></div>
-              <p class="pdesc">The payment service split out of DevFreela. It consumes payment requests from RabbitMQ and publishes a payment-approved event back. C#, .NET 8, RabbitMQ, BackgroundService.</p></li>
+              <p class="pdesc">The payment service split out of DevFreela. It consumes payment requests from RabbitMQ, checks the card data (Luhn, CVV, expiry) and publishes a payment-approved event only when the payment is approved. Tested end to end against RabbitMQ in a container. C#, .NET 8, RabbitMQ, BackgroundService, xUnit, Testcontainers.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/MyMovieScore">MyMovieScore</a><span class="kind">REST API</span></div>
-              <p class="pdesc">Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs. .NET 8, EF Core.</p></li>
+              <p class="pdesc">Sign up, save movies to a list and rate them later, with details and external ratings from the OMDb API. JWT auth, clean architecture, CQRS, Docker Compose and Swagger docs. Unit and API tests against SQL Server in a container. .NET 8, EF Core, JWT, xUnit.</p></li>
             <li><div class="phead"><a class="pname" href="https://github.com/joaogqueiroz/TaskControl">TaskControl</a><span class="kind">Full-stack web app</span></div>
-              <p class="pdesc">People log in, manage their tasks, see their progress in charts and export PDF reports. ASP.NET Core MVC, .NET 8, Dapper, SQL Server, Highcharts.</p></li>
+              <p class="pdesc">People log in, manage their tasks, see their progress in charts and export PDF reports. Unit tests, plus repository tests against SQL Server in a container. ASP.NET Core MVC, .NET 8, Dapper, SQL Server, Highcharts, xUnit.</p></li>
           </ul>
           <a class="repo all" href="https://github.com/joaogqueiroz?tab=repositories">▶ See all repos on Joao’s GitHub</a>
         </section>
@@ -409,20 +409,20 @@ const jobs = [
 /* ---------- side projects (from GitHub) ---------- */
 const projects = [
   { id: "geekshopping", name: "GeekShopping", kind: "Microservices",
-    desc: "An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Runs with Docker Compose.",
-    tags: ["C#", ".NET 8", "Microservices", "RabbitMQ", "IdentityServer", "Ocelot", "Docker"], repo: "GeekShopping" },
+    desc: "An e-commerce platform split into .NET microservices for products, cart, coupons, orders, payments and email, behind an API gateway, with IdentityServer authentication and RabbitMQ messaging. Each cart is tied to the signed-in user’s token. Unit and API tests run against SQL Server in containers. Runs with Docker Compose.",
+    tags: ["C#", ".NET 8", "Microservices", "RabbitMQ", "IdentityServer", "Ocelot", "Docker", "xUnit", "Testcontainers"], repo: "GeekShopping" },
   { id: "devfreela", name: "DevFreela", kind: "REST API",
-    desc: "Backend for a freelancer marketplace, built with CQRS and MediatR, JWT roles and xUnit tests. Finishing a project sends the payment to a separate microservice over RabbitMQ and closes the project when it is approved.",
-    tags: ["C#", ".NET 8", "CQRS", "EF Core", "RabbitMQ", "SQL Server", "xUnit"], repo: "DevFreela" },
+    desc: "Backend for a freelancer marketplace, built with CQRS and MediatR and JWT roles. Finishing a project sends the payment to a separate microservice over RabbitMQ and closes the project when it is approved. Unit tests, plus API tests against SQL Server and RabbitMQ in containers.",
+    tags: ["C#", ".NET 8", "CQRS", "EF Core", "RabbitMQ", "SQL Server", "xUnit", "Testcontainers"], repo: "DevFreela" },
   { id: "devfreelapayments", name: "DevFreela.Payments", kind: "Microservice",
-    desc: "The payment service split out of DevFreela. It consumes payment requests from RabbitMQ and publishes a payment-approved event back.",
-    tags: ["C#", ".NET 8", "RabbitMQ", "BackgroundService"], repo: "DevFreela.Payments" },
+    desc: "The payment service split out of DevFreela. It consumes payment requests from RabbitMQ, checks the card data (Luhn, CVV, expiry) and publishes a payment-approved event only when the payment is approved. Tested end to end against RabbitMQ in a container.",
+    tags: ["C#", ".NET 8", "RabbitMQ", "BackgroundService", "xUnit", "Testcontainers"], repo: "DevFreela.Payments" },
   { id: "mymoviescore", name: "MyMovieScore", kind: "REST API",
-    desc: "Sign up, save movies to a list and rate them later, with data from the OMDb API. Clean architecture, CQRS, Docker Compose and Swagger docs.",
-    tags: [".NET 8", "EF Core", "CQRS", "Docker", "Swagger"], repo: "MyMovieScore" },
+    desc: "Sign up, save movies to a list and rate them later, with details and external ratings from the OMDb API. JWT auth, clean architecture, CQRS, Docker Compose and Swagger docs. Unit and API tests against SQL Server in a container.",
+    tags: [".NET 8", "EF Core", "CQRS", "JWT", "Docker", "Swagger", "xUnit"], repo: "MyMovieScore" },
   { id: "taskcontrol", name: "TaskControl", kind: "Full-stack web app",
-    desc: "People log in, manage their tasks, see their progress in charts and export PDF reports.",
-    tags: ["ASP.NET Core MVC", ".NET 8", "Dapper", "SQL Server", "Highcharts"], repo: "TaskControl" },
+    desc: "People log in, manage their tasks, see their progress in charts and export PDF reports. Unit tests, plus repository tests against SQL Server in a container.",
+    tags: ["ASP.NET Core MVC", ".NET 8", "Dapper", "SQL Server", "Highcharts", "xUnit"], repo: "TaskControl" },
 ];
 
 const tags = (t) => `<div class="tags">${t.map(x => `<span class="tag">${x}</span>`).join("")}</div>`;
@@ -457,9 +457,9 @@ const commands = {
         <dt>Backend</dt><dd>C#, .NET Core, ASP.NET Core, REST APIs, SignalR</dd>
         <dt>Data</dt><dd>Entity Framework Core, Dapper, MySQL, Oracle, SQL Server</dd>
         <dt>Architecture</dt><dd>Microservices, event-driven systems, DDD, SOLID, CQRS, clean code</dd>
-        <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD</dd>
+        <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD, GitHub Actions</dd>
         <dt>Integration</dt><dd>SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ</dd>
-        <dt>Testing</dt><dd>xUnit, TDD</dd>
+        <dt>Testing</dt><dd>xUnit, Moq, TDD, integration tests (WebApplicationFactory, Testcontainers)</dd>
         <dt>Front end</dt><dd>Angular 17, TypeScript, RxJS</dd>
         <dt>AI tools</dt><dd>Claude Code, Cursor</dd>
         <dt>Languages</dt><dd>Portuguese (native), English (full professional), Spanish (professional)</dd>

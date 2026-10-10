@@ -247,7 +247,7 @@
           <h2 id="h-exp">Experience</h2>
           <ol class="jobs">
             <li class="job now"><div class="rail"></div><article class="jbody">
-              <div class="jtop"><h3 class="company">Movida Aluguel de Carros</h3><span class="badge">NOW</span><span class="when">Aug 2023 – now · Remote</span></div>
+              <div class="jtop"><h3 class="company">Movida Aluguel de Carros</h3><span class="badge">NOW</span><span class="when">Aug 2023 – now · São Paulo (remote)</span></div>
               <div class="role">Software Engineer</div>
               <p class="jlead">Backend for SAT 24/7, Movida’s vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tyres, coordinated across all of Brazil. 300,000+ tracked vehicles · 7,000+ providers · 50,000+ service requests a month</p>
               <ul class="bullets">
@@ -278,7 +278,7 @@
               <p class="tags">.NET Core · C# · ABP Framework · AWS · CloudFormation · SQS · MySQL · Angular 13 · Docker</p>
             </article></li>
             <li class="job"><div class="rail"></div><article class="jbody">
-              <div class="jtop"><h3 class="company">MODALGR</h3><span class="when">Sep 2021 – Aug 2022 · Remote</span></div>
+              <div class="jtop"><h3 class="company">MODALGR</h3><span class="when">Sep 2021 – Aug 2022 · Santos, SP (remote)</span></div>
               <div class="role">Software Engineer</div>
               <p class="jlead">Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch.</p>
               <ul class="bullets">
@@ -293,7 +293,7 @@
               <p class="tags">C# · .NET Core · Dapper · Oracle · DDD · Clean Architecture · SOLID</p>
             </article></li>
             <li class="job"><div class="rail"></div><article class="jbody">
-              <div class="jtop"><h3 class="company">ed (client: CAIXA)</h3><span class="when">May 2021 – Sep 2021 · Rio de Janeiro</span></div>
+              <div class="jtop"><h3 class="company">ed (client: CAIXA)</h3><span class="when">May 2021 – Sep 2021 · Rio de Janeiro (remote)</span></div>
               <div class="role">Software Engineer</div>
               <p class="jlead">Worked on XCAP do Bem, CAIXA’s online platform for selling capitalisation bonds, where every transaction has to be right.</p>
               <ul class="bullets">
@@ -385,7 +385,7 @@ const EMAIL = "joaogilberto350@hotmail.com";
 
 /* ---------- work history (from LinkedIn) ---------- */
 const jobs = [
-  { id: "movida", company: "Movida", full: "Movida Aluguel de Carros", role: "Software Engineer", when: "Aug 2023 – now", where: "Remote", now: true,
+  { id: "movida", company: "Movida", full: "Movida Aluguel de Carros", role: "Software Engineer", when: "Aug 2023 – now", where: "São Paulo (remote)", now: true,
     lead: "Backend for SAT 24/7, Movida’s vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tyres, coordinated across all of Brazil.",
     key: ["Designed and built a reusable real-time notification platform (SignalR and a REST API), now used by 3 microservices. It replaced frontend polling, so notifications are instant and CPU usage dropped", "Moved a synchronous notification call out of the response path of two decision-tree endpoints: that step went from 0.5–3 s to under 50 ms, and the lightest flow from 3–5 s to 2.3–3 s", "Resolved a database outage caused by exponential growth in stored notifications, separating the ones that must be persisted from real-time-only SignalR events that trigger UI actions"],
     more: ["Traced a geofence outage across several microservices and two SQS queues to a Redis instance mismatch, and coordinated with other teams to restore consistent event processing", "Builds and maintains the REST APIs used by internal systems and 7,000+ service providers", "Delivers features end to end across .NET and Angular 17, with Product Owners from development to release", "Works on AWS (EC2, RDS, ECR, S3, SQS) with Docker and Azure DevOps pipelines", "Uses Cursor, an AI-assisted editor, every day to speed up refactoring and debugging"],
@@ -396,12 +396,12 @@ const jobs = [
     key: ["Automated per-subscriber infrastructure with CloudFormation: setting up a new customer went from over an hour of manual work to 3–5 minutes", "Built the AWS infrastructure: EC2, RDS, SQS, S3, Route 53, CloudFormation", "Integrated the .NET services with the AI/ML systems to exchange data and deliver predictions"],
     more: ["Built .NET Core services, REST APIs and SQS-based asynchronous processing for both platforms", "Designed multi-tenant database schemas in MySQL", "Contributed Angular front-end work to ship features end to end", "Set up Docker workflows connected to CI/CD pipelines"],
     tags: [".NET Core", "C#", "ABP Framework", "AWS", "CloudFormation", "SQS", "MySQL", "Angular 13", "Docker"] },
-  { id: "modalgr", company: "ModalGR", full: "MODALGR", role: "Software Engineer", when: "Sep 2021 – Aug 2022", where: "Remote",
+  { id: "modalgr", company: "ModalGR", full: "MODALGR", role: "Software Engineer", when: "Sep 2021 – Aug 2022", where: "Santos, SP (remote)",
     lead: "Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch.",
     key: ["Implemented truck and rail arrival workflows: scheduling, gate entry, initial and final weighing, and unloading", "Built storage features: silo and warehouse occupancy, transfers between silos and grain quality tracking by lot", "Built ship loading: vessel line-up, loading plans and records of loading stoppages"],
     more: ["Implemented commercial workflows between exporters, with supporting documents and invoicing", "Wrote data access with Dapper and optimised Oracle queries for performance-critical operations", "Applied DDD and SOLID to keep the codebase clean and testable", "Worked with Product Owners to match solutions to logistics needs"],
     tags: ["C#", ".NET Core", "Dapper", "Oracle", "DDD", "Clean Architecture", "SOLID"] },
-  { id: "caixa", company: "ed · CAIXA", full: "ed (client: CAIXA)", role: "Software Engineer", when: "May 2021 – Sep 2021", where: "Rio de Janeiro",
+  { id: "caixa", company: "ed · CAIXA", full: "ed (client: CAIXA)", role: "Software Engineer", when: "May 2021 – Sep 2021", where: "Rio de Janeiro (remote)",
     lead: "Worked on XCAP do Bem, CAIXA’s online platform for selling capitalisation bonds, where every transaction has to be right.",
     key: ["Built backend APIs and business logic in .NET Core and EF Core", "Wrote unit tests first (TDD) with xUnit", "Designed MySQL structures for transactional flows"],
     more: ["Debugged and resolved production issues", "Worked in CI/CD workflows on Azure DevOps"],

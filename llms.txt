@@ -11,7 +11,7 @@
 
 ## Experience
 
-### Movida Aluguel de Carros — Software Engineer (Aug 2023 – present, Remote)
+### Movida Aluguel de Carros — Software Engineer (Aug 2023 – present, São Paulo, remote)
 Backend for SAT 24/7, Movida's vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tyres, coordinated across all of Brazil. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
 - Designed and built a reusable real-time notification platform (SignalR and a REST API), now used by 3 microservices. It replaced frontend polling, so notifications are instant and CPU usage dropped
 - Moved a synchronous notification call out of the response path of two decision-tree endpoints: that step went from 0.5–3 s to under 50 ms, and the lightest flow from 3–5 s to 2.3–3 s
@@ -34,7 +34,7 @@ Worked on two SaaS products: Uorkz, a subscription-based tech talent marketplace
 - Set up Docker workflows connected to CI/CD pipelines
 - Stack: .NET Core, C#, ABP Framework, AWS, CloudFormation, SQS, MySQL, Angular 13, Docker
 
-### MODALGR — Software Engineer (Sep 2021 – Aug 2022, Remote)
+### MODALGR — Software Engineer (Sep 2021 – Aug 2022, Santos, SP, remote)
 Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch.
 - Implemented truck and rail arrival workflows: scheduling, gate entry, initial and final weighing, and unloading
 - Built storage features: silo and warehouse occupancy, transfers between silos and grain quality tracking by lot
@@ -45,7 +45,7 @@ Built backend modules and microservices for Hexagon.pro (now HX | TOS), a termin
 - Worked with Product Owners to match solutions to logistics needs
 - Stack: C#, .NET Core, Dapper, Oracle, DDD, Clean Architecture, SOLID
 
-### ed (client: CAIXA) — Software Engineer (May 2021 – Sep 2021, Rio de Janeiro)
+### ed (client: CAIXA) — Software Engineer (May 2021 – Sep 2021, Rio de Janeiro, remote)
 Worked on XCAP do Bem, CAIXA's online platform for selling capitalisation bonds, where every transaction has to be right.
 - Built backend APIs and business logic in .NET Core and EF Core
 - Wrote unit tests first (TDD) with xUnit

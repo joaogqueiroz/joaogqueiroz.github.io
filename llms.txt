@@ -6,59 +6,72 @@
 - LinkedIn: https://www.linkedin.com/in/joaogqueiroz/
 - GitHub: https://github.com/joaogqueiroz
 - Email: joaogilberto350@hotmail.com
-- Languages: Portuguese (native), English (full professional), Spanish (professional)
+- Languages: Portuguese (native), English (advanced), Spanish (intermediate)
 - Education: BSc Computer Science, Centro Universitário Carioca (2017–2021)
 
 ## Experience
 
-### Movida Aluguel de Carros — Software Engineer (Aug 2023 – present, São Paulo)
-Backend for Movida's 24h roadside assistance platform (towing, locksmiths, batteries, tyres) across Brazil. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
-- Built and maintains the REST APIs used by internal systems and 7,000+ service providers
-- Built a reusable real-time notification microservice with SignalR
-- Improves production reliability: incident investigation, root-cause analysis, database tuning
-- Delivers features end to end across .NET and Angular 17
-- Works on AWS (EC2, RDS, ECR, S3) with Docker and Azure DevOps pipelines
-- Stack: .NET Core, C#, SignalR, EF Core, MySQL, Angular 17, AWS, Docker, microservices
+### Movida Aluguel de Carros — Software Engineer (Aug 2023 – present, Remote)
+Backend for SAT 24/7, Movida's vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tyres, coordinated across all of Brazil. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
+- Designed and built a reusable real-time notification platform (SignalR and a REST API), now used by 3 microservices. It replaced frontend polling, so notifications are instant and CPU usage dropped
+- Moved a synchronous notification call out of the response path of two decision-tree endpoints: that step went from 0.5–3 s to under 50 ms, and the lightest flow from 3–5 s to 2.3–3 s
+- Resolved a database outage caused by exponential growth in stored notifications, separating the ones that must be persisted from real-time-only SignalR events that trigger UI actions
+- Traced a geofence outage across several microservices and two SQS queues to a Redis instance mismatch, and coordinated with other teams to restore consistent event processing
+- Builds and maintains the REST APIs used by internal systems and 7,000+ service providers
+- Delivers features end to end across .NET and Angular 17, with Product Owners from development to release
+- Works on AWS (EC2, RDS, ECR, S3, SQS) with Docker and Azure DevOps pipelines
+- Uses Cursor, an AI-assisted editor, every day to speed up refactoring and debugging
+- Stack: .NET Core, C#, SignalR, EF Core, MySQL, Redis, SQS, Angular 17, AWS, Docker, Microservices
 
-### DHAUZ — Software Engineer (Aug 2022 – Aug 2023, remote)
-Uorkz, a hiring and talent-matching platform, and a sales-forecasting SaaS for enterprise clients.
-- Wrote Infrastructure-as-Code that provisions a full environment for each new SaaS customer
+### DHAUZ — Software Engineer (Aug 2022 – Aug 2023, Remote)
+Worked on two SaaS products: Uorkz, a subscription-based tech talent marketplace with AI-assisted matching, and a sales-forecasting platform built on machine-learning and LLM services.
+- Automated per-subscriber infrastructure with CloudFormation: setting up a new customer went from over an hour of manual work to 3–5 minutes
 - Built the AWS infrastructure: EC2, RDS, SQS, S3, Route 53, CloudFormation
+- Integrated the .NET services with the AI/ML systems to exchange data and deliver predictions
+- Built .NET Core services, REST APIs and SQS-based asynchronous processing for both platforms
 - Designed multi-tenant database schemas in MySQL
-- Built .NET Core services for hiring workflows, matching logic and forecasting
-- Stack: .NET Core, C#, AWS, CloudFormation, SQS, MySQL, Angular, Docker
+- Contributed Angular front-end work to ship features end to end
+- Set up Docker workflows connected to CI/CD pipelines
+- Stack: .NET Core, C#, ABP Framework, AWS, CloudFormation, SQS, MySQL, Angular 13, Docker
 
-### MODALGR — Software Engineer (Sep 2021 – Aug 2022, Santos, SP)
-Hexagon Pro, a web system for ports and terminals that traces bulk cargo exports.
-- Built backend features and APIs for cargo and terminal workflows
-- Wrote data access with Dapper and optimised Oracle queries over large datasets
+### MODALGR — Software Engineer (Sep 2021 – Aug 2022, Remote)
+Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch.
+- Implemented truck and rail arrival workflows: scheduling, gate entry, initial and final weighing, and unloading
+- Built storage features: silo and warehouse occupancy, transfers between silos and grain quality tracking by lot
+- Built ship loading: vessel line-up, loading plans and records of loading stoppages
+- Implemented commercial workflows between exporters, with supporting documents and invoicing
+- Wrote data access with Dapper and optimised Oracle queries for performance-critical operations
 - Applied DDD and SOLID to keep the codebase clean and testable
-- Stack: C#, .NET Core, Dapper, Oracle, DDD, SOLID
+- Worked with Product Owners to match solutions to logistics needs
+- Stack: C#, .NET Core, Dapper, Oracle, DDD, Clean Architecture, SOLID
 
 ### ed (client: CAIXA) — Software Engineer (May 2021 – Sep 2021, Rio de Janeiro)
-XCAP do Bem, CAIXA's online platform for selling capitalisation bonds.
+Worked on XCAP do Bem, CAIXA's online platform for selling capitalisation bonds, where every transaction has to be right.
 - Built backend APIs and business logic in .NET Core and EF Core
 - Wrote unit tests first (TDD) with xUnit
-- Designed MySQL structures for transactional flows; CI/CD on Azure DevOps
+- Designed MySQL structures for transactional flows
+- Debugged and resolved production issues
+- Worked in CI/CD workflows on Azure DevOps
 - Stack: C#, .NET Core, EF Core, MySQL, xUnit, TDD
 
-### Log Planning (client: Ipiranga) — Integration Developer (Dec 2018 – May 2021, Rio de Janeiro)
-System integrations for Ipiranga, one of Brazil's largest fuel distributors, on InterSystems Ensemble. Started as an intern, became a developer in Mar 2020.
+### Log Planning (client: Ipiranga) — Ensemble Developer (Dec 2018 – May 2021, Rio de Janeiro)
+Built integrations between systems for Ipiranga, one of Brazil's largest fuel distributors, on InterSystems Ensemble. Started as an intern, became a developer in Mar 2020.
 - Rewrote and adjusted 100+ integrations affected by an ERP upgrade
 - Built SOAP and REST integrations using a service-oriented (SOA) architecture
 - Set up new integrations in the Kong API gateway
+- Fixed bugs and reviewed code for the integration team
 - Stack: InterSystems Ensemble, SOAP, REST, SOA, Kong
 
 ## Skills
 
-- Backend: C#, .NET Core, ASP.NET Core, REST APIs, SignalR
-- Data: Entity Framework Core, Dapper, MySQL, Oracle, SQL Server
+- Backend: C#, .NET Core, ASP.NET Core, REST APIs, SignalR, ABP Framework
+- Data: Entity Framework Core, Dapper, MySQL, Oracle, SQL Server, Redis
 - Architecture: microservices, event-driven systems, DDD, SOLID, CQRS, clean code
 - Cloud & DevOps: AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD, GitHub Actions
 - Integration: SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ
 - Testing: xUnit, Moq, TDD, integration tests (WebApplicationFactory, Testcontainers)
 - Front end: Angular 17, TypeScript, RxJS
-- AI tools: Claude Code, Cursor
+- AI tools: Cursor (daily at work), Claude Code (personal projects)
 - Certificates: AWS CloudFormation Master Class, Formação ASP.NET Core, C# e POO, Michigan English Test
 
 ## Side projects

@@ -7,15 +7,15 @@
 - GitHub: https://github.com/joaogqueiroz
 - Email: joaogilberto350@hotmail.com
 - Languages: Portuguese (native), English (advanced), Spanish (intermediate)
-- Education: BSc Computer Science, Centro Universitário Carioca (2017–2021)
+- Education: BSc Computer Science, Centro Universitário Carioca (UniCarioca), 2017–2021
 
 ## Experience
 
-### Movida Aluguel de Carros — Software Engineer (Aug 2023 – present, São Paulo, remote)
-Backend for SAT 24/7, Movida's vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tyres, coordinated across all of Brazil. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
-- Designed and built a reusable real-time notification platform (SignalR and a REST API), now used by 3 microservices. It replaced frontend polling, so notifications are instant and CPU usage dropped
-- Moved a synchronous notification call out of the response path of two decision-tree endpoints: that step went from 0.5–3 s to under 50 ms, and the lightest flow from 3–5 s to 2.3–3 s
-- Resolved a database outage caused by exponential growth in stored notifications, separating the ones that must be persisted from real-time-only SignalR events that trigger UI actions
+### Movida Aluguel de Carros — Senior Software Engineer (Aug 2023 – present, São Paulo, remote)
+Backend for SAT 24/7, Movida's vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tires, coordinated across all of Brazil, in a team of 5 developers, a Product Owner and a tech lead. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
+- Designed and built a reusable real-time notification platform with SignalR and a REST API, adopted by three microservices to deliver user-facing notifications and trigger UI refreshes, replacing frontend polling
+- Sped up two roadside assistance endpoints by sending notifications in the background instead of waiting for them, reducing the time spent on notifications from up to 3 s to under 50 ms
+- As the platform expanded to support transient UI refresh events alongside persistent user notifications, separated the two flows so action events are no longer stored in the database, reducing notification records written by about 90% and resolving a notification-related database outage
 - Traced a geofence outage across several microservices and two SQS queues to a Redis instance mismatch, and coordinated with other teams to restore consistent event processing
 - Builds and maintains the REST APIs used by internal systems and 7,000+ service providers
 - Delivers features end to end across .NET and Angular 17, with Product Owners from development to release
@@ -25,7 +25,7 @@ Backend for SAT 24/7, Movida's vehicle assistance and tracking platform, focused
 
 ### DHAUZ — Software Engineer (Aug 2022 – Aug 2023, Remote)
 Worked on two SaaS products: Uorkz, a subscription-based tech talent marketplace with AI-assisted matching, and a sales-forecasting platform built on machine-learning and LLM services.
-- Automated per-subscriber infrastructure with CloudFormation: setting up a new customer went from over an hour of manual work to 3–5 minutes
+- Automated per-subscriber infrastructure with CloudFormation, giving each customer an isolated environment and database: setting up a new customer went from over an hour of manual work to 3–5 minutes
 - Built the AWS infrastructure: EC2, RDS, SQS, S3, Route 53, CloudFormation
 - Integrated the .NET services with the AI/ML systems to exchange data and deliver predictions
 - Built .NET Core services, REST APIs and SQS-based asynchronous processing for both platforms
@@ -40,13 +40,13 @@ Built backend modules and microservices for Hexagon.pro (now HX | TOS), a termin
 - Built storage features: silo and warehouse occupancy, transfers between silos and grain quality tracking by lot
 - Built ship loading: vessel line-up, loading plans and records of loading stoppages
 - Implemented commercial workflows between exporters, with supporting documents and invoicing
-- Wrote data access with Dapper and optimised Oracle queries for performance-critical operations
+- Wrote data access with Dapper and optimized Oracle queries for performance-critical operations
 - Applied DDD and SOLID to keep the codebase clean and testable
 - Worked with Product Owners to match solutions to logistics needs
 - Stack: C#, .NET Core, Dapper, Oracle, DDD, Clean Architecture, SOLID
 
 ### ed (client: CAIXA) — Software Engineer (May 2021 – Sep 2021, Rio de Janeiro, remote)
-Worked on XCAP do Bem, CAIXA's online platform for selling capitalisation bonds, where every transaction has to be right.
+Worked on XCAP do Bem, CAIXA's online platform for selling capitalization bonds, where every transaction has to be right.
 - Built backend APIs and business logic in .NET Core and EF Core
 - Wrote unit tests first (TDD) with xUnit
 - Designed MySQL structures for transactional flows

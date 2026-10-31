@@ -13,15 +13,13 @@
 
 ### Movida Aluguel de Carros — Senior Software Engineer (Aug 2023 – present, São Paulo, remote)
 Backend for SAT 24/7, Movida's vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tires, coordinated across all of Brazil, in a team of 5 developers, a Product Owner and a tech lead. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
-- Designed and built a reusable real-time notification platform with SignalR and a REST API, adopted by three microservices to deliver user-facing notifications and trigger UI refreshes, replacing frontend polling
-- Sped up two roadside assistance endpoints by sending notifications in the background instead of waiting for them, reducing the time spent on notifications from up to 3 s to under 50 ms
-- As the platform expanded to support transient UI refresh events alongside persistent user notifications, separated the two flows so action events are no longer stored in the database, reducing notification records written by about 90% and resolving a notification-related database outage
-- Traced a geofence outage across several microservices and two SQS queues to a Redis instance mismatch, and coordinated with other teams to restore consistent event processing
-- Builds and maintains the REST APIs used by internal systems and 7,000+ service providers
-- Delivers features end to end across .NET and Angular 17, with Product Owners from development to release
-- Works on AWS (EC2, RDS, ECR, S3, SQS) with Docker and Azure DevOps pipelines
-- Uses Cursor, an AI-assisted editor, every day to speed up refactoring and debugging
-- Stack: .NET Core, C#, SignalR, EF Core, MySQL, Redis, SQS, Angular 17, AWS, Docker, Microservices
+- Designed a real-time notification platform with SignalR and REST APIs that replaced frontend polling across three microservices, and later cut its database writes by about 90%, which resolved a production database outage
+- Reduced response times of critical roadside assistance endpoints by up to 3 s by running their integration calls in the background
+- Restored vehicle geofence alerts by tracing a production issue across several microservices and SQS queues to a Redis configuration problem
+- Develops and maintains .NET REST APIs and microservices for internal systems and external service providers, delivering features end to end, from backend to Angular screens, with Product Owners
+- Works on AWS (EC2, RDS, ECR, S3, SQS, CloudWatch Logs) with Docker and Azure DevOps pipelines
+- Uses Cursor, an AI-assisted editor, to speed up refactoring and debugging
+- Stack: .NET Core, C#, ASP.NET Core, SignalR, SQL Server, Redis, AWS SQS, CloudWatch Logs, Angular 17, Docker, Azure DevOps, Microservices
 
 ### DHAUZ — Software Engineer (Aug 2022 – Aug 2023, Remote)
 Worked on two SaaS products: Uorkz, a subscription-based tech talent marketplace with AI-assisted matching, and a sales-forecasting platform built on machine-learning and LLM services.
@@ -56,22 +54,22 @@ Worked on XCAP do Bem, CAIXA's online platform for selling capitalization bonds,
 
 ### Log Planning (client: Ipiranga) — Ensemble Developer (Dec 2018 – May 2021, Rio de Janeiro)
 Built integrations between systems for Ipiranga, one of Brazil's largest fuel distributors, on InterSystems Ensemble. Started as an intern, became a developer in Mar 2020.
-- Rewrote and adjusted 100+ integrations affected by an ERP upgrade
+- Maintained and modernized 100+ enterprise services during an ERP migration
 - Built SOAP and REST integrations using a service-oriented (SOA) architecture
 - Set up new integrations in the Kong API gateway
-- Fixed bugs and reviewed code for the integration team
+- Resolved production issues and took part in a weekly on-call rotation
 - Stack: InterSystems Ensemble, SOAP, REST, SOA, Kong
 
 ## Skills
 
-- Backend: C#, .NET Core, ASP.NET Core, REST APIs, SignalR, ABP Framework
-- Data: Entity Framework Core, Dapper, MySQL, Oracle, SQL Server, Redis
+- Backend: C#, .NET Core, .NET 8, ASP.NET Core, REST APIs, SignalR, ABP Framework
+- Data: SQL Server, MySQL, Oracle, Redis, Entity Framework Core, Dapper
 - Architecture: microservices, event-driven systems, DDD, SOLID, CQRS, clean code
-- Cloud & DevOps: AWS (EC2, RDS, S3, SQS, ECR, Route 53, CloudFormation), Docker, Azure DevOps CI/CD, GitHub Actions
+- Cloud & DevOps: AWS (EC2, RDS, S3, SQS, ECR, CloudWatch Logs, CloudFormation, Route 53), Docker, Azure DevOps CI/CD, GitHub Actions
 - Integration: SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ
 - Testing: xUnit, Moq, TDD, integration tests (WebApplicationFactory, Testcontainers)
 - Front end: Angular 17, TypeScript, RxJS
-- AI tools: Cursor (daily at work), Claude Code (personal projects)
+- AI tools: Cursor, Claude Code
 - Certificates: AWS CloudFormation Master Class, Formação ASP.NET Core, C# e POO, Michigan English Test
 
 ## Side projects

@@ -1,6 +1,6 @@
 # Joao de Queiroz
 
-> Senior Software Engineer (backend, distributed systems, C#/.NET, AWS) based in Rio de Janeiro, Brazil. 7+ years building REST APIs, microservices, real-time and event-driven systems, and cloud infrastructure. Currently at Movida Aluguel de Carros.
+> Senior Software Engineer (backend, C#/.NET, microservices, AWS) based in Rio de Janeiro, Brazil. 7+ years building backend systems, REST APIs and microservices across vehicle operations, logistics, financial services and SaaS. Currently at Movida Aluguel de Carros, on a nationwide vehicle assistance platform (300,000+ tracked vehicles), where he designed a real-time notification platform with SignalR and later cut its database writes by about 90%. Works with asynchronous processing, distributed systems, SQL Server and AWS, plus full-stack features with Angular.
 
 - Website: https://joaogqueiroz.github.io/
 - LinkedIn: https://www.linkedin.com/in/joaogqueiroz/
@@ -64,7 +64,7 @@ Built integrations between systems for Ipiranga, one of Brazil's largest fuel di
 
 - Backend: C#, .NET Core, .NET 8, ASP.NET Core, REST APIs, SignalR, ABP Framework
 - Data: SQL Server, MySQL, Oracle, Redis, Entity Framework Core, Dapper
-- Architecture: microservices, event-driven systems, DDD, SOLID, CQRS, clean code
+- Architecture: microservices, event-driven architecture, Clean Architecture, DDD, SOLID, CQRS
 - Cloud & DevOps: AWS (EC2, RDS, S3, SQS, ECR, CloudWatch Logs, CloudFormation, Route 53), Docker, Azure DevOps CI/CD, GitHub Actions
 - Integration: SOAP, REST, SOA, InterSystems Ensemble, Kong API gateway, RabbitMQ
 - Testing: xUnit, Moq, TDD, integration tests (WebApplicationFactory, Testcontainers)

@@ -139,7 +139,9 @@
   .stack dt { color: var(--muted); }
   .stack dd { margin: 0; }
   @media (max-width: 540px) { .stack { grid-template-columns: 1fr; gap: 0; } .stack dd { margin-bottom: 8px; } }
-  .links { display: grid; grid-template-columns: max-content 1fr; gap: 2px 20px; }
+  .links { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 2px 20px; }
+  .links > * { overflow-wrap: anywhere; }
+  @media (max-width: 540px) { .links { grid-template-columns: 1fr; gap: 0; } .links > :nth-child(2n) { margin-bottom: 8px; } }
   .links a, a.go { color: var(--cyan); overflow-wrap: anywhere; }
 
   /* prompt */

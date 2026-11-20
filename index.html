@@ -239,7 +239,7 @@
           <ul class="stats" style="list-style:none;padding:0">
             <li class="stat"><b>7+ YRS</b><span>building backend systems</span></li>
             <li class="stat"><b>300K+</b><span>vehicles on the Movida platform</span></li>
-            <li class="stat"><b>100+</b><span>services modernized for Ipiranga</span></li>
+            <li class="stat"><b>100+</b><span>integrations rewritten for Ipiranga</span></li>
           </ul>
         </section>
 
@@ -251,10 +251,10 @@
               <div class="role">Senior Software Engineer</div>
               <p class="jlead">Backend for SAT 24/7, Movida’s vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tires, coordinated across all of Brazil, in a team of 5 developers, a Product Owner and a tech lead. 300,000+ tracked vehicles · 7,000+ providers · 50,000+ service requests a month</p>
               <ul class="bullets">
-                <li><span>Designed a real-time notification platform with SignalR and REST APIs that replaced frontend polling across three microservices, and later cut its database writes by about 90%, which resolved a production database outage</span></li>
+                <li><span>Designed and secured management approval for a real-time notification platform with SignalR and REST APIs for user-facing alerts, replacing frontend polling across three microservices. When its use expanded to UI update events, separated those events from stored alerts, cutting database writes by about 90% and resolving a production database outage</span></li>
                 <li><span>Reduced response times of critical roadside assistance endpoints by up to 3 s by running their integration calls in the background</span></li>
-                <li><span>Restored vehicle geofence alerts by tracing a production issue across several microservices and SQS queues to a Redis configuration problem</span></li>
-                <li><span>Develops and maintains .NET REST APIs and microservices for internal systems and external service providers, delivering features end to end, from backend to Angular screens, with Product Owners</span></li>
+                <li><span>Restored vehicle geofence alerts by tracing a production issue across several microservices and SQS queues to a Redis configuration problem, working with other teams to map the flow</span></li>
+                <li><span>Delivered end-to-end features for internal systems and external service providers, building .NET APIs and microservices alongside Angular interfaces with Product Owners</span></li>
                 <li><span>Works on AWS (EC2, RDS, ECR, S3, SQS, CloudWatch Logs) with Docker and Azure DevOps pipelines</span></li>
                 <li><span>Uses Cursor, an AI-assisted editor, to speed up refactoring and debugging</span></li>
               </ul>
@@ -278,13 +278,13 @@
             <li class="job"><div class="rail"></div><article class="jbody">
               <div class="jtop"><h3 class="company">MODALGR</h3><span class="when">Sep 2021 – Aug 2022 · Santos, SP (remote)</span></div>
               <div class="role">Software Engineer</div>
-              <p class="jlead">Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch.</p>
+              <p class="jlead">Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch, in a team of 2 backend and 2 frontend developers and a tech lead.</p>
               <ul class="bullets">
-                <li><span>Implemented truck and rail arrival workflows: scheduling, gate entry, initial and final weighing, and unloading</span></li>
-                <li><span>Built storage features: silo and warehouse occupancy, transfers between silos and grain quality tracking by lot</span></li>
+                <li><span>Built the cargo receiving module: driver, truck and locomotive registration, scheduling, gate entry, weighing and unloading</span></li>
+                <li><span>Modeled split loads across rail wagons, so one wagon could carry grain for several clients with each share tracked separately</span></li>
+                <li><span>Built silo storage movements and grain transfers between exporters based on export sale documents, tracking how much grain each client owns in every silo so stock stayed correct</span></li>
                 <li><span>Built ship loading: vessel line-up, loading plans and records of loading stoppages</span></li>
-                <li><span>Implemented commercial workflows between exporters, with supporting documents and invoicing</span></li>
-                <li><span>Wrote data access with Dapper and optimized Oracle queries for performance-critical operations</span></li>
+                <li><span>Wrote Oracle views and stored procedures and used Dapper for data access in performance-critical features</span></li>
                 <li><span>Applied DDD and SOLID to keep the codebase clean and testable</span></li>
                 <li><span>Worked with Product Owners to match solutions to logistics needs</span></li>
               </ul>
@@ -292,13 +292,12 @@
             </article></li>
             <li class="job"><div class="rail"></div><article class="jbody">
               <div class="jtop"><h3 class="company">ed (client: CAIXA)</h3><span class="when">May 2021 – Sep 2021 · Rio de Janeiro (remote)</span></div>
-              <div class="role">Software Engineer</div>
+              <div class="role">Software Engineer (Contract)</div>
               <p class="jlead">Worked on XCAP do Bem, CAIXA’s online platform for selling capitalization bonds, where every transaction has to be right.</p>
               <ul class="bullets">
-                <li><span>Built backend APIs and business logic in .NET Core and EF Core</span></li>
-                <li><span>Wrote unit tests first (TDD) with xUnit</span></li>
-                <li><span>Designed MySQL structures for transactional flows</span></li>
-                <li><span>Debugged and resolved production issues</span></li>
+                <li><span>Raised automated test coverage to 95% with unit and integration tests in xUnit, following TDD</span></li>
+                <li><span>Developed backend features and REST APIs with .NET Core and Entity Framework Core, and designed MySQL data models</span></li>
+                <li><span>Analyzed and fixed production bugs</span></li>
                 <li><span>Worked in CI/CD workflows on Azure DevOps</span></li>
               </ul>
               <p class="tags">C# · .NET Core · EF Core · MySQL · xUnit · TDD</p>
@@ -308,11 +307,12 @@
               <div class="role">Ensemble Developer · Intern → Developer</div>
               <p class="jlead">Built integrations between systems for Ipiranga, one of Brazil’s largest fuel distributors, on InterSystems Ensemble.</p>
               <ul class="bullets">
-                <li><span>Maintained and modernized 100+ enterprise services during an ERP migration</span></li>
+                <li><span>Remapped and rewrote 100+ integration services during a JD Edwards ERP upgrade that changed API contracts, completing the migration while services kept running normally</span></li>
+                <li><span>Built new integrations and updated existing fiscal ones for Brazilian tax documents (NF-e, CT-e), adding, resizing and removing fields</span></li>
                 <li><span>Built SOAP and REST integrations using a service-oriented (SOA) architecture</span></li>
                 <li><span>Set up new integrations in the Kong API gateway</span></li>
                 <li><span>Started as an intern in Dec 2018 and became a developer in Mar 2020</span></li>
-                <li><span>Resolved production issues and took part in a weekly on-call rotation</span></li>
+                <li><span>Took part in a weekly on-call rotation, investigating alerts and restoring services</span></li>
               </ul>
               <p class="tags">InterSystems Ensemble · SOAP · REST · SOA · Kong</p>
             </article></li>
@@ -385,8 +385,8 @@ const EMAIL = "joaogilberto350@hotmail.com";
 const jobs = [
   { id: "movida", company: "Movida", full: "Movida Aluguel de Carros", role: "Senior Software Engineer", when: "Aug 2023 – now", where: "São Paulo (remote)", now: true,
     lead: "Backend for SAT 24/7, Movida’s vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tires, coordinated across all of Brazil, in a team of 5 developers, a Product Owner and a tech lead.",
-    key: ["Designed a real-time notification platform with SignalR and REST APIs that replaced frontend polling across three microservices, and later cut its database writes by about 90%, which resolved a production database outage", "Reduced response times of critical roadside assistance endpoints by up to 3 s by running their integration calls in the background", "Restored vehicle geofence alerts by tracing a production issue across several microservices and SQS queues to a Redis configuration problem"],
-    more: ["Develops and maintains .NET REST APIs and microservices for internal systems and external service providers, delivering features end to end, from backend to Angular screens, with Product Owners", "Works on AWS (EC2, RDS, ECR, S3, SQS, CloudWatch Logs) with Docker and Azure DevOps pipelines", "Uses Cursor, an AI-assisted editor, to speed up refactoring and debugging"],
+    key: ["Designed and secured management approval for a real-time notification platform with SignalR and REST APIs for user-facing alerts, replacing frontend polling across three microservices. When its use expanded to UI update events, separated those events from stored alerts, cutting database writes by about 90% and resolving a production database outage", "Reduced response times of critical roadside assistance endpoints by up to 3 s by running their integration calls in the background", "Restored vehicle geofence alerts by tracing a production issue across several microservices and SQS queues to a Redis configuration problem, working with other teams to map the flow"],
+    more: ["Delivered end-to-end features for internal systems and external service providers, building .NET APIs and microservices alongside Angular interfaces with Product Owners", "Works on AWS (EC2, RDS, ECR, S3, SQS, CloudWatch Logs) with Docker and Azure DevOps pipelines", "Uses Cursor, an AI-assisted editor, to speed up refactoring and debugging"],
     scale: "300,000+ tracked vehicles · 7,000+ providers · 50,000+ service requests a month",
     tags: [".NET Core", "C#", "ASP.NET Core", "SignalR", "SQL Server", "Redis", "AWS SQS", "CloudWatch Logs", "Angular 17", "Docker", "Azure DevOps", "Microservices"] },
   { id: "dhauz", company: "Dhauz", full: "DHAUZ", role: "Software Engineer", when: "Aug 2022 – Aug 2023", where: "Remote",
@@ -395,19 +395,19 @@ const jobs = [
     more: ["Built .NET Core services, REST APIs and SQS-based asynchronous processing for both platforms", "Designed multi-tenant database schemas in MySQL", "Contributed Angular front-end work to ship features end to end", "Set up Docker workflows connected to CI/CD pipelines"],
     tags: [".NET Core", "C#", "ABP Framework", "AWS", "CloudFormation", "SQS", "MySQL", "Angular 13", "Docker"] },
   { id: "modalgr", company: "ModalGR", full: "MODALGR", role: "Software Engineer", when: "Sep 2021 – Aug 2022", where: "Santos, SP (remote)",
-    lead: "Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch.",
-    key: ["Implemented truck and rail arrival workflows: scheduling, gate entry, initial and final weighing, and unloading", "Built storage features: silo and warehouse occupancy, transfers between silos and grain quality tracking by lot", "Built ship loading: vessel line-up, loading plans and records of loading stoppages"],
-    more: ["Implemented commercial workflows between exporters, with supporting documents and invoicing", "Wrote data access with Dapper and optimized Oracle queries for performance-critical operations", "Applied DDD and SOLID to keep the codebase clean and testable", "Worked with Product Owners to match solutions to logistics needs"],
+    lead: "Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch, in a team of 2 backend and 2 frontend developers and a tech lead.",
+    key: ["Built the cargo receiving module: driver, truck and locomotive registration, scheduling, gate entry, weighing and unloading", "Modeled split loads across rail wagons, so one wagon could carry grain for several clients with each share tracked separately", "Built silo storage movements and grain transfers between exporters based on export sale documents, tracking how much grain each client owns in every silo so stock stayed correct"],
+    more: ["Built ship loading: vessel line-up, loading plans and records of loading stoppages", "Wrote Oracle views and stored procedures and used Dapper for data access in performance-critical features", "Applied DDD and SOLID to keep the codebase clean and testable", "Worked with Product Owners to match solutions to logistics needs"],
     tags: ["C#", ".NET Core", "Dapper", "Oracle", "DDD", "Clean Architecture", "SOLID"] },
-  { id: "caixa", company: "ed · CAIXA", full: "ed (client: CAIXA)", role: "Software Engineer", when: "May 2021 – Sep 2021", where: "Rio de Janeiro (remote)",
+  { id: "caixa", company: "ed · CAIXA", full: "ed (client: CAIXA)", role: "Software Engineer (Contract)", when: "May 2021 – Sep 2021", where: "Rio de Janeiro (remote)",
     lead: "Worked on XCAP do Bem, CAIXA’s online platform for selling capitalization bonds, where every transaction has to be right.",
-    key: ["Built backend APIs and business logic in .NET Core and EF Core", "Wrote unit tests first (TDD) with xUnit", "Designed MySQL structures for transactional flows"],
-    more: ["Debugged and resolved production issues", "Worked in CI/CD workflows on Azure DevOps"],
+    key: ["Raised automated test coverage to 95% with unit and integration tests in xUnit, following TDD", "Developed backend features and REST APIs with .NET Core and Entity Framework Core, and designed MySQL data models", "Analyzed and fixed production bugs"],
+    more: ["Worked in CI/CD workflows on Azure DevOps"],
     tags: ["C#", ".NET Core", "EF Core", "MySQL", "xUnit", "TDD"] },
   { id: "logplanning", company: "Log Planning", full: "Log Planning (client: Ipiranga)", role: "Ensemble Developer · Intern → Developer", when: "Dec 2018 – May 2021", where: "Rio de Janeiro",
     lead: "Built integrations between systems for Ipiranga, one of Brazil’s largest fuel distributors, on InterSystems Ensemble.",
-    key: ["Maintained and modernized 100+ enterprise services during an ERP migration", "Built SOAP and REST integrations using a service-oriented (SOA) architecture", "Set up new integrations in the Kong API gateway"],
-    more: ["Started as an intern in Dec 2018 and became a developer in Mar 2020", "Resolved production issues and took part in a weekly on-call rotation"],
+    key: ["Remapped and rewrote 100+ integration services during a JD Edwards ERP upgrade that changed API contracts, completing the migration while services kept running normally", "Built new integrations and updated existing fiscal ones for Brazilian tax documents (NF-e, CT-e), adding, resizing and removing fields", "Built SOAP and REST integrations using a service-oriented (SOA) architecture", "Set up new integrations in the Kong API gateway"],
+    more: ["Started as an intern in Dec 2018 and became a developer in Mar 2020", "Took part in a weekly on-call rotation, investigating alerts and restoring services"],
     tags: ["InterSystems Ensemble", "SOAP", "REST", "SOA", "Kong"] },
 ];
 
@@ -442,7 +442,7 @@ const commands = {
       <div class="stats">
         <div class="stat"><b>7+ YRS</b><span>building backend systems</span></div>
         <div class="stat"><b>300K+</b><span>vehicles on the Movida platform</span></div>
-        <div class="stat"><b>100+</b><span>services modernized for Ipiranga</span></div>
+        <div class="stat"><b>100+</b><span>integrations rewritten for Ipiranga</span></div>
       </div>`),
   experience: () => tool("Read", "linkedin.com/in/joaogqueiroz", "5 roles · Dec 2018 – now · click a company for details") + `
     <div class="reply"><div>

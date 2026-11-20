@@ -13,10 +13,10 @@
 
 ### Movida Aluguel de Carros — Senior Software Engineer (Aug 2023 – present, São Paulo, remote)
 Backend for SAT 24/7, Movida's vehicle assistance and tracking platform, focused on roadside assistance: towing, locksmiths, batteries and tires, coordinated across all of Brazil, in a team of 5 developers, a Product Owner and a tech lead. Scale: 300,000+ tracked vehicles, 7,000+ service providers, 50,000+ service requests a month.
-- Designed a real-time notification platform with SignalR and REST APIs that replaced frontend polling across three microservices, and later cut its database writes by about 90%, which resolved a production database outage
+- Designed and secured management approval for a real-time notification platform with SignalR and REST APIs for user-facing alerts, replacing frontend polling across three microservices. When its use expanded to UI update events, separated those events from stored alerts, cutting database writes by about 90% and resolving a production database outage
 - Reduced response times of critical roadside assistance endpoints by up to 3 s by running their integration calls in the background
-- Restored vehicle geofence alerts by tracing a production issue across several microservices and SQS queues to a Redis configuration problem
-- Develops and maintains .NET REST APIs and microservices for internal systems and external service providers, delivering features end to end, from backend to Angular screens, with Product Owners
+- Restored vehicle geofence alerts by tracing a production issue across several microservices and SQS queues to a Redis configuration problem, working with other teams to map the flow
+- Delivered end-to-end features for internal systems and external service providers, building .NET APIs and microservices alongside Angular interfaces with Product Owners
 - Works on AWS (EC2, RDS, ECR, S3, SQS, CloudWatch Logs) with Docker and Azure DevOps pipelines
 - Uses Cursor, an AI-assisted editor, to speed up refactoring and debugging
 - Stack: .NET Core, C#, ASP.NET Core, SignalR, SQL Server, Redis, AWS SQS, CloudWatch Logs, Angular 17, Docker, Azure DevOps, Microservices
@@ -33,31 +33,31 @@ Worked on two SaaS products: Uorkz, a subscription-based tech talent marketplace
 - Stack: .NET Core, C#, ABP Framework, AWS, CloudFormation, SQS, MySQL, Angular 13, Docker
 
 ### MODALGR — Software Engineer (Sep 2021 – Aug 2022, Santos, SP, remote)
-Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch.
-- Implemented truck and rail arrival workflows: scheduling, gate entry, initial and final weighing, and unloading
-- Built storage features: silo and warehouse occupancy, transfers between silos and grain quality tracking by lot
+Built backend modules and microservices for Hexagon.pro (now HX | TOS), a terminal operating system, on its bulk-cargo solution for the grain export chain, during initial development before customer launch, in a team of 2 backend and 2 frontend developers and a tech lead.
+- Built the cargo receiving module: driver, truck and locomotive registration, scheduling, gate entry, weighing and unloading
+- Modeled split loads across rail wagons, so one wagon could carry grain for several clients with each share tracked separately
+- Built silo storage movements and grain transfers between exporters based on export sale documents, tracking how much grain each client owns in every silo so stock stayed correct
 - Built ship loading: vessel line-up, loading plans and records of loading stoppages
-- Implemented commercial workflows between exporters, with supporting documents and invoicing
-- Wrote data access with Dapper and optimized Oracle queries for performance-critical operations
+- Wrote Oracle views and stored procedures and used Dapper for data access in performance-critical features
 - Applied DDD and SOLID to keep the codebase clean and testable
 - Worked with Product Owners to match solutions to logistics needs
 - Stack: C#, .NET Core, Dapper, Oracle, DDD, Clean Architecture, SOLID
 
-### ed (client: CAIXA) — Software Engineer (May 2021 – Sep 2021, Rio de Janeiro, remote)
+### ed (client: CAIXA) — Software Engineer (Contract) (May 2021 – Sep 2021, Rio de Janeiro, remote)
 Worked on XCAP do Bem, CAIXA's online platform for selling capitalization bonds, where every transaction has to be right.
-- Built backend APIs and business logic in .NET Core and EF Core
-- Wrote unit tests first (TDD) with xUnit
-- Designed MySQL structures for transactional flows
-- Debugged and resolved production issues
+- Raised automated test coverage to 95% with unit and integration tests in xUnit, following TDD
+- Developed backend features and REST APIs with .NET Core and Entity Framework Core, and designed MySQL data models
+- Analyzed and fixed production bugs
 - Worked in CI/CD workflows on Azure DevOps
 - Stack: C#, .NET Core, EF Core, MySQL, xUnit, TDD
 
 ### Log Planning (client: Ipiranga) — Ensemble Developer (Dec 2018 – May 2021, Rio de Janeiro)
 Built integrations between systems for Ipiranga, one of Brazil's largest fuel distributors, on InterSystems Ensemble. Started as an intern, became a developer in Mar 2020.
-- Maintained and modernized 100+ enterprise services during an ERP migration
+- Remapped and rewrote 100+ integration services during a JD Edwards ERP upgrade that changed API contracts, completing the migration while services kept running normally
+- Built new integrations and updated existing fiscal ones for Brazilian tax documents (NF-e, CT-e), adding, resizing and removing fields
 - Built SOAP and REST integrations using a service-oriented (SOA) architecture
 - Set up new integrations in the Kong API gateway
-- Resolved production issues and took part in a weekly on-call rotation
+- Took part in a weekly on-call rotation, investigating alerts and restoring services
 - Stack: InterSystems Ensemble, SOAP, REST, SOA, Kong
 
 ## Skills
